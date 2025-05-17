@@ -1,37 +1,80 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>أوبن كارت العرب - قريباً</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ما هو أوبن كارت؟ | أوبن كارت العرب</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
       font-family: 'Cairo', sans-serif;
-      background: linear-gradient(to bottom, #0d47a1, #1976d2);
+      margin: 0;
+      padding: 0;
+      background-color: #f7f9fc;
+      color: #333;
+      line-height: 1.8;
+    }
+    header {
+      background-color: #005fa3;
       color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      padding: 20px;
       text-align: center;
-      flex-direction: column;
     }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
     }
-    p {
-      font-size: 1.5rem;
-      max-width: 500px;
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 30px 20px;
     }
-    .logo {
-      max-width: 150px;
-      margin-bottom: 30px;
+    h2 {
+      color: #005fa3;
+      margin-top: 40px;
+    }
+    ul {
+      padding-right: 20px;
+    }
+    footer {
+      background-color: #e3e3e3;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #333;
+    }
+    .subscribe-box {
+      margin: 30px 0 20px;
+    }
+    .subscribe-box input[type="email"] {
+      padding: 10px;
+      width: 250px;
+      max-width: 90%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: 'Cairo', sans-serif;
+    }
+    .subscribe-box button {
+      padding: 10px 20px;
+      background-color: #005fa3;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-family: 'Cairo', sans-serif;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    .social-links {
+      margin-top: 20px;
+    }
+    .social-links a {
+      margin: 0 10px;
+      color: #005fa3;
+      text-decoration: none;
+      font-weight: bold;
     }
   </style>
-  <!-- Google tag (gtag.js) -->
+   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-14L9509493"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -42,10 +85,58 @@
 </script>
 </head>
 <body>
-  <!-- ضع شعار موقعك هنا إن أردت -->
-  <!-- <img src="logo.png" alt="شعار  الموقع" class="logo"> -->
 
-  <h1>نعود إليكم قريباً</h1>
-  <p>موقع <strong>أوبن كارت العرب</strong> في طور التجهيز حالياً وسنعود إليكم قريباً بإذن الله بمحتوى مميز ودعم أقوى لمجتمع أوبن كارت.</p>
+  <header>
+    <h1>ما هو أوبن كارت؟</h1>
+    <p>نظام مجاني ومفتوح المصدر لإنشاء المتاجر الإلكترونية</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>نبذة عن أوبن كارت</h2>
+      <p>
+        أوبن كارت (OpenCart) هو نظام إدارة محتوى (CMS) متخصص في التجارة الإلكترونية. يتميز ببساطته، وقوته، ودعمه الكبير للغات والعملات، مما يجعله خيارًا مثاليًا لأصحاب المتاجر الإلكترونية في العالم العربي.
+      </p>
+    </section>
+
+    <section>
+      <h2>مميزات أوبن كارت</h2>
+      <ul>
+        <li>نظام مجاني ومفتوح المصدر 100%</li>
+        <li>واجهة تحكم سهلة وسلسة</li>
+        <li>دعم متعدد اللغات والعملات</li>
+        <li>قوالب وإضافات كثيرة</li>
+        <li>دعم لإدارة الطلبات والمخزون والعملاء</li>
+        <li>تحسين محركات البحث (SEO) بشكل ممتاز</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>لماذا أوبن كارت العرب؟</h2>
+      <p>
+        نسعى في "أوبن كارت العرب" لتقديم محتوى تعليمي ودعم فني ومجتمع عربي نشط يساعد المستخدمين على تحقيق أقصى استفادة من هذا النظام الرائع. سواء كنت مبتدئًا أو مطورًا محترفًا، ستجد ما تحتاجه هنا.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="subscribe-box">
+      <p><strong>اشترك في النشرة البريدية:</strong></p>
+      <form action="mailto:info@opencartarab.com" method="post" enctype="text/plain">
+        <input type="email" name="email" placeholder="أدخل بريدك الإلكتروني" required>
+        <button type="submit">اشترك</button>
+      </form>
+    </div>
+
+    <div class="social-links">
+      <p><strong>تابعنا على منصات التواصل:</strong></p>
+      <a href="https://www.facebook.com/opencartarab" target="_blank">فيسبوك</a> |
+      <a href="https://x.com/OpenCartArab" target="_blank">إكس (تويتر سابقًا)</a> |
+      <a href="https://www.youtube.com/@Opencartarab" target="_blank">يوتيوب</a>
+    </div>
+
+    <p style="margin-top: 30px;">&copy; 2025 أوبن كارت العرب - جميع الحقوق محفوظة.</p>
+  </footer>
+
 </body>
 </html>
