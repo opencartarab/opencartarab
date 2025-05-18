@@ -1,66 +1,109 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>تحويل PDF إلى Word</title>
   <style>
-    body { font-family: sans-serif; text-align: center; padding: 40px; background: #f8f8f8; }
-    input, button { padding: 10px; margin: 10px; font-size: 1rem; }
-    #status { margin-top: 20px; font-weight: bold; color: #007bff; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 2rem;
+      text-align: center;
+      direction: rtl;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input[type="file"] {
+      margin: 1rem 0;
+    }
+    #status {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    a.download-link {
+      display: block;
+      margin-top: 1rem;
+      color: green;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
-  <h1>أداة تحويل PDF إلى Word</h1>
-  <input type="file" id="fileInput" accept="application/pdf">
-  <button onclick="convertFile()">تحويل</button>
-  <div id="status"></div>
+  <div class="container">
+    <h1>تحويل PDF إلى Word</h1>
+    <p>اختر ملف PDF من جهازك ليتم تحويله إلى ملف Word</p>
+    <input type="file" id="fileInput" accept="application/pdf" />
+    <br />
+    <button onclick="convert()">ابدأ التحويل</button>
+    <p id="status"></p>
+    <a id="downloadLink" class="download-link" href="#" target="_blank" style="display: none;">تحميل الملف المحول</a>
+  </div>
 
   <script>
-    async function convertFile() {
+    async function convert() {
       const fileInput = document.getElementById('fileInput');
-      const statusDiv = document.getElementById('status');
+      const status = document.getElementById('status');
+      const downloadLink = document.getElementById('downloadLink');
+
+      status.textContent = '';
+      downloadLink.style.display = 'none';
 
       if (!fileInput.files.length) {
-        statusDiv.innerText = 'يرجى اختيار ملف PDF';
+        status.textContent = 'يرجى اختيار ملف PDF';
         return;
       }
 
       const file = fileInput.files[0];
-      statusDiv.innerText = 'جاري التحويل...';
+      const formData = new FormData();
+      formData.append("file", file);
 
-      const reader = new FileReader();
-      reader.onload = async function () {
-        const base64Data = reader.result.split(',')[1];
+      status.textContent = 'جاري رفع الملف...';
 
-        try {
-          const response = await fetch('https://word-to-pdf.samisaas.workers.dev/', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              fileData: base64Data,
-              fileName: file.name
-            })
-          });
+      try {
+        // رفع الملف إلى CloudConvert
+        const uploadRes = await fetch("https://upload.cloudconvert.com", {
+          method: "POST",
+          body: formData
+        });
 
-          if (!response.ok) throw new Error('فشل في الاتصال بالسيرفر');
+        const uploadData = await uploadRes.json();
+        const fileUrl = uploadData.url || uploadData[0]?.url;
 
-          const result = await response.json();
-
-          if (result.downloadUrl) {
-            statusDiv.innerHTML = `<a href="${result.downloadUrl}" target="_blank">⬇️ تحميل الملف المحول</a>`;
-          } else {
-            statusDiv.innerText = 'فشل التحويل، حاول مرة أخرى.';
-          }
-        } catch (error) {
-          statusDiv.innerText = 'فشل الاتصال بالسيرفر.';
-          console.error(error);
+        if (!fileUrl) {
+          status.textContent = 'فشل رفع الملف';
+          return;
         }
-      };
 
-      reader.readAsDataURL(file);
+        status.textContent = 'جاري التحويل...';
+
+        // إرسال الرابط إلى الـ Worker
+        const workerRes = await fetch("https://word-to-pdf.samisaas.workers.dev/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ fileUrl: fileUrl })
+        });
+
+        const workerData = await workerRes.json();
+
+        if (workerData.success) {
+          status.textContent = 'تم التحويل بنجاح!';
+          downloadLink.href = workerData.url;
+          downloadLink.textContent = 'اضغط هنا لتحميل ملف Word';
+          downloadLink.style.display = 'block';
+        } else {
+          status.textContent = 'فشل في التحويل: ' + (workerData.error || '');
+        }
+      } catch (err) {
+        status.textContent = 'حدث خطأ أثناء المعالجة';
+        console.error(err);
+      }
     }
   </script>
 </body>
