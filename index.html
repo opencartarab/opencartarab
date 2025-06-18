@@ -4,11 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ما هو أوبن كارت؟ | أوبن كارت العرب</title>
+  <meta name="description" content="تعرف على أوبن كارت، نظام مجاني لإنشاء المتاجر الإلكترونية باللغة العربية.">
+
   
-  <!-- خطوط -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+
   
-  <!-- تنسيقات CSS -->
   <style>
     body {
       font-family: 'Cairo', sans-serif;
@@ -31,6 +33,28 @@
       font-size: 2.5rem;
     }
 
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    nav {
+      background-color: #004a85;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
     main {
       max-width: 900px;
       margin: auto;
@@ -51,16 +75,23 @@
       border-collapse: collapse;
       margin-top: 20px;
     }
+
     table, th, td {
       border: 1px solid #ccc;
     }
+
     th, td {
       padding: 10px;
       text-align: center;
     }
+
     th {
       background-color: #005fa3;
       color: white;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f0f0f0;
     }
 
     footer {
@@ -71,28 +102,13 @@
       color: #333;
     }
 
-    .subscribe-box {
-      margin: 30px 0 20px;
-    }
-
-    .subscribe-box input[type="email"] {
-      padding: 10px;
-      width: 250px;
-      max-width: 90%;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-family: 'Cairo', sans-serif;
-    }
-
-    .subscribe-box button {
-      padding: 10px 20px;
-      background-color: #005fa3;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      font-family: 'Cairo', sans-serif;
-      cursor: pointer;
-      margin-right: 10px;
+    .email-display {
+      margin: 20px 0;
+      font-weight: bold;
+      direction: ltr;
+      text-align: center;
+      color: #005fa3;
+      font-size: 1.1rem;
     }
 
     .social-links {
@@ -106,13 +122,8 @@
       font-weight: bold;
     }
 
-    .email-display {
-      margin: 20px 0;
-      font-weight: bold;
-      direction: ltr;
-      text-align: center;
-      color: #005fa3;
-      font-size: 1.1rem;
+    .social-links i {
+      margin-left: 5px;
     }
   </style>
 
@@ -132,8 +143,15 @@
     <p>نظام مجاني ومفتوح المصدر لإنشاء المتاجر الإلكترونية</p>
   </header>
 
+  <nav>
+    <a href="#about">عن النظام</a>
+    <a href="#features">المميزات</a>
+    <a href="#releases">الإصدارات</a>
+    <a href="#contact">تواصل معنا</a>
+  </nav>
+
   <main>
-    <section>
+    <section id="about">
       <h2>نبذة عن أوبن كارت</h2>
       <p>
         أوبن كارت (OpenCart) هو نظام إدارة محتوى (CMS) متخصص في التجارة الإلكترونية.
@@ -141,7 +159,7 @@
       </p>
     </section>
 
-    <section>
+    <section id="features">
       <h2>مميزات أوبن كارت</h2>
       <ul>
         <li>نظام مجاني ومفتوح المصدر 100%</li>
@@ -160,9 +178,8 @@
         على تحقيق أقصى استفادة من هذا النظام الرائع. سواء كنت مبتدئًا أو مطورًا محترفًا، ستجد ما تحتاجه هنا.
       </p>
     </section>
-  </main>
-  <main>
-    <section>
+
+    <section id="releases">
       <h2>إصدارات أوبن كارت العربية</h2>
       <table>
         <thead>
@@ -178,9 +195,9 @@
             <td>يناير 13, 2025</td>
             <td>
               <a href="https://opencartarab.com/releases/opencart_Arabic_V4100.zip"
-                 target="_blank"
+                 target="_blank" rel="noopener noreferrer"
                  onclick="gtag('event', 'download', {'event_category': 'File', 'event_label': 'OpenCart Arabic v4.1.0.0'});">
-                 تنزيل
+                 تنزيل (23.8MB)
               </a>
             </td>
           </tr>
@@ -189,19 +206,18 @@
             <td>سبتمبر 16, 2023</td>
             <td>
               <a href="https://opencartarab.com/releases/opencart_Arabic_V4023.zip"
-                 target="_blank"
+                 target="_blank" rel="noopener noreferrer"
                  onclick="gtag('event', 'download', {'event_category': 'File', 'event_label': 'OpenCart Arabic v4.0.2.3'});">
-                 تنزيل
+                 تنزيل (21.5MB)
               </a>
             </td>
           </tr>
-          <!-- أضف المزيد من الإصدارات هنا بنفس الطريقة -->
         </tbody>
       </table>
     </section>
   </main>
 
-  <footer>
+  <footer id="contact">
     <div class="email-display">
       📧 للتواصل <br>
       <span>info@opencartarab.com</span>
@@ -209,9 +225,17 @@
 
     <div class="social-links">
       <p><strong>تابعنا على منصات التواصل:</strong></p>
-      <a href="https://www.facebook.com/opencartarab" target="_blank">فيسبوك</a> |
-      <a href="https://x.com/OpenCartArab" target="_blank">إكس</a> |
-      <a href="https://www.youtube.com/@Opencartarab" target="_blank">يوتيوب</a>
+      <a href="https://www.facebook.com/opencartarab" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-facebook"></i>فيسبوك
+      </a>
+      |
+      <a href="https://x.com/OpenCartArab" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-x-twitter"></i>إكس
+      </a>
+      |
+      <a href="https://www.youtube.com/@Opencartarab" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-youtube"></i>يوتيوب
+      </a>
     </div>
 
     <p style="margin-top:30px;">
