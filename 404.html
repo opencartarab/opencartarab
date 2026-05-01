@@ -23,6 +23,30 @@
     <!-- Lottie -->
     <script src="lottie-player.js"></script>
 
+    <script>
+        // الحصول على الرابط الحالي بالكامل
+        var currentUrl = window.location.href;
+
+        // قائمة التحويلات (ضع الروابط القديمة وما يقابلها من الجديد)
+        var redirects = {
+            "index.php": "https://opencartarab.com",
+            "product_id=100": "https://opencartarab.com",
+            "information_id=22": "https://opencartarab.com",
+            "https://opencartarab.com/a/4023": "https://opencartarab.com",
+            "route=common/home": "https://opencartarab.com"
+        };
+
+        // البحث في الرابط عن الكلمات المفتاحية للتحويل
+        for (var key in redirects) {
+            if (currentUrl.indexOf(key) !== -1) {
+                window.location.replace(redirects[key]);
+            }
+        }
+
+        // إذا لم يكن الرابط ضمن القائمة، ابق في صفحة 404 أو وجهه للرئيسية
+        // window.location.replace("/"); 
+    </script>
+
 </head>
 <body>
 
