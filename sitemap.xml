@@ -3,43 +3,68 @@
 
   <!-- الصفحة الرئيسية -->
   <url>
-    <loc>https://opencartarab.github.io/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <loc>https://opencartarab.com/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <priority>1.00</priority>
+  </url>
+
+  <!-- الصفحة المخصصة للكلمة المفتاحية (متجر الكتروني مجاني عربي) -->
+  <url>
+    <loc>https://opencartarab.com/free-online-store-arabic.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- صفحة الأسئلة الشائعة -->
+  <url>
+    <loc>https://opencartarab.com/faq.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- صفحة عن الموقع -->
+  <url>
+    <loc>https://opencartarab.com/about.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <priority>0.85</priority>
   </url>
 
   <!-- صفحة الإصدارات -->
   <url>
-    <loc>https://opencartarab.github.io/releases</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://opencartarab.com/releases.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <priority>0.85</priority>
   </url>
 
-  <!-- روابط الإصدارات -->
+  <!-- أرشيف الإصدارات -->
   <url>
-    <loc>https://opencartarab.github.io/releases/opencart_Arabic_V4100.zip</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://opencartarab.com/archive.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- المميزات -->
+  <url>
+    <loc>https://opencartarab.com/features.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- صفحات الاستضافة والدعم -->
+  <url>
+    <loc>https://opencartarab.com/basic-hosting.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://opencartarab.github.io/releases/opencart_Arabic_V4023.zip</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://opencartarab.com/advanced-hosting.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://opencartarab.github.io/releases/opencart_Arabic_V3041.zip</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://opencartarab.github.io/releases/opencart_Arabic_V3040.zip</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://opencartarab.github.io/releases/opencart_Arabic_V3039.zip</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://opencartarab.com/transfer-hosting.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <priority>0.80</priority>
   </url>
 
 </urlset>

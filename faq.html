@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الأسئلة الشائعة في أوبن كارت (FAQ) | حلول وإجابات شاملة - أوبن كارت العرب</title>
+    <meta name="description" content="دليل شامل للأسئلة الشائعة في OpenCart، حلول المشاكل التقنية، شرح الإضافات والقوالب، وكل ما تحتاجه لإدارة متجرك بنجاح.">
+
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="أوبن كارت العرب">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://opencartarab.com/faq.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="الأسئلة الشائعة في أوبن كارت">
+    <meta property="og:description" content="إجابات شاملة حول OpenCart والمشاكل التقنية والإضافات.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://opencartarab.com/images/cover.jpg">
+    <meta property="og:url" content="https://opencartarab.com/faq.html">
+    <meta property="og:locale" content="ar_AR">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Styles -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "كيف أركب إضافة في أوبن كارت بدون ما أخرب الموقع؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "تركيب الإضافات يتم من لوحة التحكم، وبعد الرفع يجب الضغط على تحديث التعديلات حتى تعمل الإضافة بشكل صحيح."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ليش بعض الإضافات ما تشتغل بعد التثبيت مباشرة؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "غالباً السبب يكون الكاش أو عدم تحديث التعديلات بعد التثبيت، أو وجود تعارض مع إضافة أخرى."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل أقدر أحذف إضافة بدون ما تأثر على المتجر؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "نعم، لكن يجب التأكد أولاً أنها ليست مرتبطة بوظائف أساسية مثل الدفع أو الشحن."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "وش الفرق بين OCMOD و VQMOD؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OCMOD هو النظام الحديث في أوبن كارت، بينما VQMOD يعتبر قديم وأقل استخداماً حالياً."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ليش المتجر يصير بطيء بعد تركيب إضافات كثيرة؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "بسبب زيادة الأكواد والاستعلامات التي تضيفها الإضافات، مما يسبب ضغط على السيرفر."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ليش التعديلات في القالب ما تظهر عندي؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "غالباً بسبب الكاش في المتصفح أو النظام، ويجب مسحه لرؤية التعديلات الجديدة."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل أقدر أغير شكل المتجر بدون برمجة؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "نعم، بعض القوالب توفر إعدادات جاهزة لتغيير الشكل بدون الحاجة إلى تعديل الكود."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ليش الموقع يطلع مختلف في الجوال؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "لأن القالب قد لا يكون متجاوب بالكامل أو يوجد تعديلات CSS تؤثر على العرض في الجوال."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "كيف أخلي المتجر يدعم اللغة العربية بشكل صحيح؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "يجب استخدام قالب يدعم RTL وتثبيت ملفات اللغة العربية بشكل صحيح داخل النظام."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل أقدر أستخدم قالب مجاني بشكل احترافي؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "نعم، لكن غالباً يحتاج تعديلات وتحسينات ليصبح مناسب للاستخدام الاحترافي."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ليش يظهر خطأ 500 فجأة في المتجر؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "عادة يكون بسبب خطأ في ملف .htaccess أو إضافة غير متوافقة أو مشكلة في PHP."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "كيف أعرف سبب مشكلة في أوبن كارت؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "يمكن معرفة السبب من خلال مراجعة ملف الأخطاء (error log) في السيرفر."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ليش بعض الصفحات ما تفتح عندي؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "قد يكون السبب رابط خاطئ أو مشكلة في إعدادات الروابط الصديقة (SEO URL)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "كيف أرفع أداء المتجر؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "عن طريق تقليل الإضافات غير الضرورية، استخدام كاش، واستضافة قوية."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل التحديثات ممكن تخرب المتجر؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "نعم إذا لم يتم أخذ نسخة احتياطية قبل التحديث، لذلك النسخ الاحتياطي ضروري دائماً."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body class="theme-basic">
+    
+    <div id="header-placeholder"></div>
+
+    <section class="sub-hero">
+        <div class="container text-center">
+            <h1 class="fw-bold">الأسئلة الشائعة في أوبن كارت (OpenCart FAQ)</h1>
+            <p class="lead">كل ما تحتاج معرفته عن أوبن كارت في مكان واحد</p>
+        </div>
+    </section>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="details-card sticky-top" style="top: 100px; padding: 25px;">
+                    <h5 class="fw-bold mb-4"><i class="fas fa-list-ul me-2"></i> تصفح حسب القسم</h5>
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <button class="nav-link active" id="v-pills-modules-tab" data-bs-toggle="pill" data-bs-target="#v-pills-modules" type="button" role="tab">
+                            <i class="fas fa-plug"></i> الإضافات (Modules)
+                        </button>
+                        <button class="nav-link" id="v-pills-themes-tab" data-bs-toggle="pill" data-bs-target="#v-pills-themes" type="button" role="tab">
+                            <i class="fas fa-paint-brush"></i> التصميم والقوالب
+                        </button>
+                        <button class="nav-link" id="v-pills-technical-tab" data-bs-toggle="pill" data-bs-target="#v-pills-technical" type="button" role="tab">
+                            <i class="fas fa-tools"></i> المشاكل التقنية
+                        </button>
+                    </div>
+                    <div class="mt-4 p-3 bonus-badge text-center">
+                        <i class="fas fa-headset mb-2 d-block fa-lg"></i> 
+                        لم تجد إجابة؟ <br>
+                        <a href="mailto:info@opencartarab.com" class="text-primary fw-bold text-decoration-none">تواصل مع الدعم الفني</a>
+                    </div>
+                </div>
+            </div>
+
+                                <div class="col-lg-8">
+                                    <div class="tab-content" id="v-pills-tabContent">
+                                        
+                                        <div class="tab-pane fade show active" id="v-pills-modules" role="tabpanel">
+                        <h3 class="faq-category-title">الإضافات (Modules)</h3>
+                        <div class="accordion" id="modulesAccordion">
+                            
+                            <!-- السؤال الأول -->
+                            <div class="accordion-item shadow-sm">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#m1">
+                                        كيف أركب إضافة في أوبن كارت بدون ما أخرب الموقع؟
+                                    </button>
+                                </h2>
+                                <div id="m1" class="accordion-collapse collapse show" data-bs-parent="#modulesAccordion">
+                                    <div class="accordion-body">
+                                        تركيب الإضافات يكون عن طريق لوحة التحكم من قسم الإضافات، لكن أهم خطوة كثير ناس يغفلون عنها هي تحديث التعديلات بعد الرفع. بدونها الإضافة غالباً ما تشتغل.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- السؤال الثاني -->
+                            <div class="accordion-item shadow-sm">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#m2">
+                                        ليش بعض الإضافات ما تشتغل بعد التثبيت مباشرة؟
+                                    </button>
+                                </h2>
+                                <div id="m2" class="accordion-collapse collapse" data-bs-parent="#modulesAccordion">
+                                    <div class="accordion-body">
+                                        غالباً السبب يكون الكاش أو أنك ما ضغطت تحديث التعديلات. أحياناً كمان يكون فيه تعارض مع إضافة ثانية مركبة قبلها.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- السؤال الثالث -->
+                            <div class="accordion-item shadow-sm">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#m3">
+                                        هل أقدر أحذف إضافة بدون ما تأثر على المتجر؟
+                                    </button>
+                                </h2>
+                                <div id="m3" class="accordion-collapse collapse" data-bs-parent="#modulesAccordion">
+                                    <div class="accordion-body">
+                                        نعم، لكن الأفضل تتأكد أول إذا كانت مرتبطة بوظيفة أساسية مثل الدفع أو الشحن. حذف الإضافة بدون مراجعة ممكن يسبب مشاكل في بعض الصفحات.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- السؤال الرابع -->
+                            <div class="accordion-item shadow-sm">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#m4">
+                                        وش الفرق بين OCMOD و VQMOD؟
+                                    </button>
+                                </h2>
+                                <div id="m4" class="accordion-collapse collapse" data-bs-parent="#modulesAccordion">
+                                    <div class="accordion-body">
+                                        OCMOD هو النظام الحديث داخل أوبن كارت، بينما VQMOD قديم شوي. أغلب الإضافات الجديدة تعتمد على OCMOD لأنه أسهل وأقل مشاكل.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- السؤال الخامس -->
+                            <div class="accordion-item shadow-sm">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#m5">
+                                        ليش المتجر أحياناً يصير بطيء بعد تركيب إضافات كثيرة؟
+                                    </button>
+                                </h2>
+                                <div id="m5" class="accordion-collapse collapse" data-bs-parent="#modulesAccordion">
+                                    <div class="accordion-body">
+                                        لأن كل إضافة تضيف استعلامات أو أكواد إضافية، ومع كثرتها يزيد الضغط على السيرفر. الأفضل استخدام الإضافات الضرورية فقط.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-themes" role="tabpanel">
+    <h3 class="faq-category-title">التصميم والقوالب (Themes)</h3>
+    <div class="accordion" id="themesAccordion">
+        
+        <!-- السؤال الأول -->
+        <div class="accordion-item shadow-sm">
+            <h2 class="accordion-header">
+                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#t1">
+                    ليش التعديلات في القالب ما تظهر عندي؟
+                </button>
+            </h2>
+            <div id="t1" class="accordion-collapse collapse show" data-bs-parent="#themesAccordion">
+                <div class="accordion-body">
+                    غالباً السبب هو الكاش. حتى لو عدلت الكود صح، المتصفح أو النظام يعرض نسخة قديمة.
+                </div>
+            </div>
+        </div>
+
+        <!-- السؤال الثاني -->
+        <div class="accordion-item shadow-sm">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#t2">
+                    هل أقدر أغير شكل المتجر بدون برمجة؟
+                </button>
+            </h2>
+            <div id="t2" class="accordion-collapse collapse" data-bs-parent="#themesAccordion">
+                <div class="accordion-body">
+                    نعم، كثير قوالب أوبن كارت توفر إعدادات جاهزة لتغيير الألوان والتخطيط بدون لمس الكود.
+                </div>
+            </div>
+        </div>
+
+        <!-- السؤال الثالث -->
+        <div class="accordion-item shadow-sm">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#t3">
+                    ليش الموقع يطلع مختلف في الجوال؟
+                </button>
+            </h2>
+            <div id="t3" class="accordion-collapse collapse" data-bs-parent="#themesAccordion">
+                <div class="accordion-body">
+                    إذا القالب ما كان متجاوب بشكل كامل، أو فيه CSS مخصص، ممكن يسبب اختلاف في العرض بين الجوال والكمبيوتر.
+                </div>
+            </div>
+        </div>
+
+        <!-- السؤال الرابع -->
+        <div class="accordion-item shadow-sm">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#t4">
+                    كيف أخلي المتجر يدعم اللغة العربية بشكل صحيح؟
+                </button>
+            </h2>
+            <div id="t4" class="accordion-collapse collapse" data-bs-parent="#themesAccordion">
+                <div class="accordion-body">
+                    لازم تستخدم قالب يدعم RTL وتضيف ملفات اللغة العربية داخل مجلد اللغة بشكل صحيح.
+                </div>
+            </div>
+        </div>
+
+        <!-- السؤال الخامس -->
+        <div class="accordion-item shadow-sm">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#t5">
+                    هل أقدر أستخدم قالب مجاني بشكل احترافي؟
+                </button>
+            </h2>
+            <div id="t5" class="accordion-collapse collapse" data-bs-parent="#themesAccordion">
+                <div class="accordion-body">
+                    نعم، لكن تحتاج تضبطه شوي وتضيف تحسينات. القوالب المجانية ممتازة كبداية لكن تحتاج تخصيص.
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+                    <div class="tab-pane fade" id="v-pills-technical" role="tabpanel">
+    <h3 class="faq-category-title">المشاكل التقنية</h3>
+    <div class="accordion" id="techAccordion">
+        
+        <!-- السؤال الأول -->
+        <div class="accordion-item shadow-sm">
+            <h2 class="accordion-header">
+                <button class="accordion-button fw-bold text-danger" type="button" data-bs-toggle="collapse" data-bs-target="#tc1">
+                    ليش يظهر خطأ 500 فجأة في المتجر؟
+                </button>
+            </h2>
+            <div id="tc1" class="accordion-collapse collapse show" data-bs-parent="#techAccordion">
+                <div class="accordion-body">
+                    غالباً يكون بسبب خطأ في إضافة أو ملف <code>.htaccess</code> أو تعارض مع نسخة PHP. الحل يبدأ دائماً بمراجعة سجل الأخطاء.
+                </div>
+            </div>
+        </div>
+
+        <!-- السؤال الثاني -->
+        <div class="accordion-item shadow-sm">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#tc2">
+                    كيف أعرف سبب مشكلة في أوبن كارت؟
+                </button>
+            </h2>
+            <div id="tc2" class="accordion-collapse collapse" data-bs-parent="#techAccordion">
+                <div class="accordion-body">
+                    أفضل طريقة هي مراجعة ملف الخطأ (error log) من لوحة التحكم أو ملفات السيرفر، لأنه يعطيك السبب الحقيقي ومكان المشكلة بالضبط.
+                </div>
+            </div>
+        </div>
+
+        <!-- السؤال الثالث -->
+        <div class="accordion-item shadow-sm">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#tc3">
+                    ليش بعض الصفحات ما تفتح عندي؟
+                </button>
+            </h2>
+            <div id="tc3" class="accordion-collapse collapse" data-bs-parent="#techAccordion">
+                <div class="accordion-body">
+                    ممكن يكون رابط خاطئ أو مشكلة في الروابط الصديقة (SEO URL). تأكد من تفعيل ملف <code>.htaccess</code> بشكل صحيح من السيرفر.
+                </div>
+            </div>
+        </div>
+
+        <!-- السؤال الرابع -->
+        <div class="accordion-item shadow-sm">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#tc4">
+                    كيف أرفع أداء المتجر؟
+                </button>
+            </h2>
+            <div id="tc4" class="accordion-collapse collapse" data-bs-parent="#techAccordion">
+                <div class="accordion-body">
+                    تحسين الأداء يكون عبر تقليل الإضافات الثقيلة، تفعيل نظام الكاش، ضغط الصور، واستخدام استضافة سريعة متوافقة مع متطلبات أوبن كارت.
+                </div>
+            </div>
+        </div>
+
+        <!-- السؤال الخامس -->
+        <div class="accordion-item shadow-sm">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#tc5">
+                    هل التحديثات ممكن تخرب المتجر؟
+                </button>
+            </h2>
+            <div id="tc5" class="accordion-collapse collapse" data-bs-parent="#techAccordion">
+                <div class="accordion-body">
+                    نعم، إذا لم تأخذ نسخة احتياطية كاملة (ملفات وقاعدة بيانات) قبل التحديث، قد تحدث تعارضات. النسخ الاحتياطي هو أمانك الأول دائماً.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+                        <div class="expert-advice mt-5 shadow-sm">
+                            <h5 class="fw-bold mb-2">
+                                <i class="fas fa-lightbulb me-2 text-warning"></i> نصيحة الخبراء:
+                            </h5>
+                            <p class="mb-0 small text-muted">دائماً قم بأخذ نسخة احتياطية (Backup) لقاعدة البيانات والملفات قبل إجراء أي تحديث أو تثبيت إضافة جديدة. هذا الإجراء البسيط قد ينقذ متجرك من التوقف المفاجئ.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

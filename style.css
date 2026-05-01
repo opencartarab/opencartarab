@@ -1,0 +1,346 @@
+/* --- 1. المتغيرات والقواعد العامة --- */
+:root {
+    --main-blue: #2c3e50;
+    --oc-blue: #27ae60;
+    --oc-green: #27ae60; /* اللون الأخضر الذي كنت تستخدمه */
+    --gold: #f39c12;
+    --light-bg: #f8f9fa;
+    --white: #ffffff;
+}
+
+body { 
+    font-family: 'Cairo', sans-serif; 
+    background-color: var(--light-bg); 
+    color: #333; 
+    line-height: 1.7; /* تحسين قراءة النص العربي */
+}
+
+/* لمسة جمالية للروابط */
+.nav-link { font-weight: 600; color: var(--main-blue) !important; transition: 0.3s; }
+.nav-link:hover, .nav-link.active { color: var(--oc-blue) !important; }
+.dropdown-item { text-align: right; font-size: 0.9rem; padding: 10px 20px; }
+.dropdown-item:hover { background-color: #f8f9fa; color: var(--oc-blue); }
+
+/* --- 2. الهيرو (Hero Sections) --- */
+.hero, .sub-hero { 
+    color: white; 
+    transition: all 0.5s ease; 
+    background: linear-gradient(135deg, var(--main-blue) 0%, #3498db 100%); 
+}
+
+.hero { padding: 100px 0; border-bottom-left-radius: 50% 20px; border-bottom-right-radius: 50% 20px; }
+.sub-hero { padding: 60px 0; margin-bottom: 40px; }
+
+/* تخصيصات الهيرو حسب الصفحات */
+.theme-advanced .sub-hero { background: linear-gradient(135deg, #1a2a3a 0%, #2c3e50 100%); border-bottom: 4px solid var(--oc-blue); padding: 70px 0; }
+.theme-transfer .sub-hero { background: linear-gradient(135deg, #2c3e50 0%, var(--oc-green) 100%); }
+
+/* --- 3. الكروت والعناصر المشتركة --- */
+.custom-card, .details-card, .price-card { 
+    background: var(--white); 
+    border: none; 
+    border-radius: 15px; 
+    transition: all 0.3s ease; 
+}
+
+.custom-card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1); 
+}
+
+.details-card { border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 40px; }
+
+.price-card { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+.price-card.featured { border: 2px solid var(--oc-blue); transform: scale(1.05); z-index: 2; }
+.scale-card { transform: scale(1.05); z-index: 2; }
+
+/* --- 4. عناصر صفحات التفاصيل (Features) --- */
+.feature-item { padding: 15px; border-bottom: 1px solid #eee; display: flex; align-items: center; }
+.feature-item:last-child { border-bottom: none; }
+.feature-item i { margin-left: 15px; font-size: 1.2rem; color: var(--oc-blue); }
+
+.theme-advanced .feature-item i { color: var(--gold); }
+
+/* خطوات صفحة النقل */
+.transfer-step { position: relative; padding-right: 45px; margin-bottom: 25px; }
+.transfer-step i { 
+    position: absolute; right: 0; top: 5px; color: var(--oc-green); 
+    background: rgba(39, 174, 96, 0.1); width: 35px; height: 35px; 
+    display: flex; align-items: center; justify-content: center; border-radius: 50%; 
+}
+
+/* --- 5. صناديق الدفع (PayPal Boxes) --- */
+.paypal-box { border-radius: 15px; padding: 30px; text-align: center; margin-top: 20px; }
+.theme-basic .paypal-box { background-color: #fff9e6; border: 2px dashed var(--gold); }
+.theme-advanced .paypal-box { background-color: #f0f7f4; border: 2px solid var(--oc-green); }
+.theme-transfer .paypal-box { background-color: #fff; border: 2px solid #eee; transition: border-color 0.3s; }
+.theme-transfer .paypal-box:hover { border-color: var(--oc-blue); }
+
+/* --- 6. عناصر الصفحة الرئيسية (Support & Tables) --- */
+.support-card { transition: all 0.3s ease; border-start-width: 5px !important; }
+.support-card:hover { transform: scale(1.02); box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important; }
+.support-icon-box { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 12px; }
+.comparison-table thead { background: linear-gradient(90deg, #2c3e50, #3498db); }
+.comparison-table td, .comparison-table th { padding: 1.5rem !important; }
+
+/* نكهة خاصة بصفحة الإصدارات */
+.featured-release { background: linear-gradient(135deg, #005c97, #363795); border: none; transition: transform 0.3s ease; color: white; }
+.featured-release:hover { transform: translateY(-5px); }
+
+/* الأرشيف */
+.version-header { 
+    background: #ffffff; 
+    padding: 15px 25px; 
+    border-right: 6px solid var(--main-blue);
+    border-radius: 0 10px 0 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+.table-archive { background: white; border-radius: 0 0 15px 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+/* شارات إضافية */
+.featured-badge-top { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #dc3545; color: white; padding: 5px 20px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; }
+.bonus-badge { background: #fff3cd; color: #856404; padding: 10px; border-radius: 10px; border: 1px solid #ffeeba; font-size: 0.9rem; }
+
+/* الاستجابة */
+@media (max-width: 768px) { 
+    .hero { padding: 60px 0; } 
+    .price-card.featured { transform: scale(1); margin: 15px 0; } 
+}
+/* نكهة خاصة بصفحة الإصدارات لزيادة الفخامة */
+        .featured-release {
+            background: linear-gradient(135deg, #005c97, #363795);
+            border: none;
+            transition: transform 0.3s ease;
+        }
+        .featured-release:hover {
+            transform: translateY(-5px);
+        }
+        .release-card {
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+            background: #fff;
+        }
+        .release-card:hover {
+            border-color: #005c97;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05) !important;
+        }
+        .btn-download-main {
+            background: #fff;
+            color: #363795 !important;
+            border: none;
+        }
+        .btn-download-main:hover {
+            background: #f8f9fa;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+/* 404 */
+        .error-wrapper {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .error-title {
+            font-weight: 800;
+            font-size: 30px;
+            color: var(--main-blue);
+            margin-top: 20px;
+        }
+
+        .error-desc {
+            color: #666;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        .quick-links a {
+            margin: 5px;
+        }
+
+        .lottie-box {
+            max-width: 300px;
+            margin: auto;
+        }
+
+.hover-link:hover { color: white !important; transition: 0.3s; }
+
+/* whatsapp */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e;
+    color: #FFF;
+    transform: scale(1.1);
+}
+
+/* نص تلميحي يظهر عند حوم الماوس (اختياري) */
+.whatsapp-float .tooltip-text {
+    visibility: hidden;
+    width: 140px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    right: 125%; 
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.whatsapp-float:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* استجابة للجوال */
+@media screen and (max-width: 767px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 25px;
+    }
+}
+@keyframes pulse-whatsapp {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.whatsapp-float {
+    animation: pulse-whatsapp 2s infinite;
+}
+
+/* نقبل الدفع */
+.grayscale-filter img {
+    filter: brightness(0) invert(1); /* يجعل الشعارات باللون الأبيض */
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    object-fit: contain;
+    max-width: 60px; /* يضمن تناسق العرض مع الارتفاع */
+}
+
+.grayscale-filter img:hover {
+    filter: none; /* يعيد الألوان الأصلية (أزرق، أحمر، برتقالي) */
+    opacity: 1;
+    transform: scale(1.05); /* تكبير بسيط جداً عند التمرير */
+}
+
+.payment-methods h6 {
+    color: #adb5bd; /* لون نص متناسق مع الفوتر */
+    font-size: 0.9rem;
+}
+
+
+.table td {
+    vertical-align: middle; /* لجعل النص والأزرار في منتصف الخلية */
+}
+
+.badge {
+    font-family: sans-serif; /* لجعل أرقام النسخ تبدو أوضح */
+    padding: 8px 12px;
+}
+/* ربط الرابط بقسم الدعم في الصفحة الرئيسية */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- تنسيقات صفحة الأسئلة الشائعة (نسخة أفتح وأهدأ) --- */
+.faq-category-title {
+    font-weight: 700;
+    color: var(--main-blue);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid rgba(39, 174, 96, 0.2); /* خط سفلي خفيف جداً */
+    display: inline-block;
+}
+
+/* القائمة الجانبية (Pills) - ألوان أفتح */
+#v-pills-tab .nav-link {
+    border-radius: 12px;
+    margin-bottom: 10px;
+    padding: 14px 20px;
+    color: #555 !important; /* لون نص أخف من الأسود */
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    text-align: right;
+    transition: all 0.3s ease;
+}
+
+#v-pills-tab .nav-link i {
+    margin-left: 10px;
+    color: var(--oc-blue);
+    opacity: 0.7;
+}
+
+/* الحالة النشطة: خلفية زرقاء فاتحة جداً مع نص أزرق */
+#v-pills-tab .nav-link.active {
+    background-color: rgba(52, 152, 219, 0.1) !important; /* أزرق سماوي شفاف جداً */
+    color: var(--main-blue) !important;
+    border-color: rgba(52, 152, 219, 0.3);
+    font-weight: 700;
+}
+
+#v-pills-tab .nav-link.active i {
+    opacity: 1;
+    color: var(--main-blue);
+}
+
+/* نصيحة الخبراء - شكل أهدأ وأفتح */
+.expert-advice {
+    background: #fdfdfd; /* خلفية بيضاء تقريباً */
+    border: 1px solid #ffeeba; /* إطار أصفر باهت جداً */
+    border-right: 5px solid var(--gold); /* خط جانبي فقط لتمييزها */
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.expert-advice h5 {
+    color: #856404; /* لون ذهبي داكن للنص فقط */
+    font-size: 1.1rem;
+}
+
+/* تحسين الـ Accordion ليكون "Soft" */
+.accordion-item {
+    border: 1px solid #f5f5f5 !important;
+    border-radius: 15px !important;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02) !important; /* ظل لا يكاد يُرى */
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #fafafa !important; /* رمادي فاتح جداً عند الفتح */
+    color: var(--oc-blue) !important;
+}
+
+/* تأثير حركة أيقونة العربة في الرئيسية */
+.animated {
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}

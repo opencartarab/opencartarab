@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الدفع الآمن | أوبن كارت العرب</title>
+    <meta name="description" content="صفحة الدفع الآمن لإتمام عملية الدفع بسهولة وأمان.">
+    <!-- منع الأرشفة لخصوصية الصفحة -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        :root {
+            --main-blue: #005fa3;
+            --dark-blue: #004a85;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--main-blue);
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--dark-blue);
+        }
+
+        header img {
+            max-width: 200px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        header h1 { margin: 0; font-size: 1.8rem; }
+        header p { margin: 5px 0 0; opacity: 0.9; font-size: 1rem; }
+
+        main {
+            max-width: 600px;
+            margin: -40px auto 40px;
+            padding: 0 20px;
+        }
+
+        .payment-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--main-blue);
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e1e1;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: 'Cairo';
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: var(--main-blue);
+            outline: none;
+        }
+
+        .info-text {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .error-msg {
+            color: #d9534f;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        #paypal-button-container {
+            margin-top: 30px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .secure-badge {
+            display: inline-block;
+            background: #e8f4fd;
+            color: #005fa3;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <img src="https://opencartarab.com/images/logo-opencartarab.png" alt="أوبن كارت العرب">
+    <h1>إتمام عملية الدفع</h1>
+    <p>بوابة الدفع الآمنة لخدمات الدعم الفني</p>
+</header>
+
+<main>
+    <div class="payment-card" id="smart-button-container">
+        <div style="text-align: center;">
+            <span class="secure-badge"><i class="fas fa-lock"></i> اتصال آمن ومشفر بالكامل</span>
+        </div>
+
+        <div class="form-group">
+            <label for="description">اسم العميل أو المتجر</label>
+            <input type="text" id="description" placeholder="مثال: متجر الأناقة">
+            <div id="descriptionError" class="error-msg">الرجاء كتابة اسم العميل أو المتجر</div>
+        </div>
+
+        <div class="form-group">
+            <label for="amount">المبلغ المستحق (بالدولار الأمريكي)</label>
+            <input type="number" id="amount" step="0.01" placeholder="0.00">
+            <span class="info-text">ادخل المبلغ المتفق عليه ثم اختر وسيلة الدفع بالأسفل</span>
+            <div id="priceLabelError" class="error-msg">الرجاء إدخال مبلغ صحيح</div>
+        </div>
+
+        <!-- حقل مخفي للهوية البرمجية أو رقم الفاتورة إن وجد -->
+        <div id="invoiceidDiv" style="display: none;">
+            <input type="text" id="invoiceid" value="">
+        </div>
+
+        <div id="paypal-button-container"></div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2026 أوبن كارت العرب - جميع الحقوق محفوظة</p>
+</footer>
+
+<script src="https://www.paypal.com/sdk/js?client-id=AcXcYNZouJl4wuFKGHeUJvFnlX-HpD4JJYMQTmZ60Uu2E2NUTZ5L2zq0wCIxu2_TYS8QGpdOa2nAIBMW&currency=USD&locale=ar_SA" data-sdk-integration-source="button-factory"></script>
+
+<script>
+    function initPayPalButton() {
+        var description = document.querySelector('#description');
+        var amount = document.querySelector('#amount');
+        var descriptionError = document.querySelector('#descriptionError');
+        var priceError = document.querySelector('#priceLabelError');
+
+        paypal.Buttons({
+            style: {
+                color: 'gold',
+                shape: 'rect',
+                label: 'paypal',
+                layout: 'vertical',
+            },
+
+            onInit: function (data, actions) {
+                actions.disable();
+                
+                [description, amount].forEach(function (item) {
+                    item.addEventListener('input', function () {
+                        if (description.value.length > 0 && amount.value > 0) {
+                            actions.enable();
+                        } else {
+                            actions.disable();
+                        }
+                    });
+                });
+            },
+
+            onClick: function () {
+                descriptionError.style.display = description.value.length < 1 ? "block" : "none";
+                priceError.style.display = amount.value.length < 1 ? "block" : "none";
+            },
+
+            createOrder: function (data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        description: description.value,
+                        amount: {
+                            value: amount.value
+                        }
+                    }]
+                });
+            },
+
+            onApprove: function (data, actions) {
+                return actions.order.capture().then(function (details) {
+                    alert('تمت عملية الدفع بنجاح شكراً لك، ' + details.payer.name.given_name + '!');
+                    // يمكنك توجيه العميل لصفحة شكر هنا
+                });
+            },
+
+            onError: function (err) {
+                console.error(err);
+                alert('حدث خطأ أثناء معالجة عملية الدفع، يرجى المحاولة مرة أخرى.');
+            }
+        }).render('#paypal-button-container');
+    }
+    initPayPalButton();
+</script>
+
+</body>
+</html>
