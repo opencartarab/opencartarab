@@ -24,27 +24,37 @@
     <script src="lottie-player.js"></script>
 
     <script>
-        // الحصول على الرابط الحالي بالكامل
-        var currentUrl = window.location.href;
+        (function() {
+            var currentUrl = window.location.href.toLowerCase();
+            var targetUrl = "/"; // الوجهة الافتراضية هي الرئيسية
 
-        // قائمة التحويلات (ضع الروابط القديمة وما يقابلها من الجديد)
-        var redirects = {
-            "index.php": "https://opencartarab.com",
-            "product_id=100": "https://opencartarab.com",
-            "information_id=22": "https://opencartarab.com",
-            "https://opencartarab.com/a/4023": "https://opencartarab.com",
-            "route=common/home": "https://opencartarab.com"
-        };
+            // مصفوفة القواعد: ابحث عن كلمة مفتاحية وحدد وجهتها
+            var rules = [
+                { key: "product_id=209", dest: "/features.html" }, // مثال لخدمة محددة
+                { key: "product_id=205", dest: "/features.html" },
+                { key: "information_id=", dest: "/about.html" },   // صفحات المعلومات القديمة
+                { key: "/forum/", dest: "/" },                     // تحويل روابط المنتدى للرئيسية
+                { key: "/a/2020", dest: "/" },                     // تحويل المجلد القديم للرئيسية
+                { key: "/a/", dest: "/" },                         // أي شيء داخل مجلد a
+                { key: "home", dest: "/" },                        // رابط /home القديم
+                { key: "viewtopic.php", dest: "/" },               // مواضيع المنتدى
+                { key: "opencart_arabic", dest: "/" },             // روابط التنزيل القديمة
+                { key: "demo/admin", dest: "/" }                   // لوحة تحكم الديمو
+            ];
 
-        // البحث في الرابط عن الكلمات المفتاحية للتحويل
-        for (var key in redirects) {
-            if (currentUrl.indexOf(key) !== -1) {
-                window.location.replace(redirects[key]);
+            // فحص الرابط بناءً على القواعد أعلاه
+            for (var i = 0; i < rules.length; i++) {
+                if (currentUrl.indexOf(rules[i].key.toLowerCase()) !== -1) {
+                    targetUrl = rules[i].dest;
+                    break;
+                }
             }
-        }
 
-        // إذا لم يكن الرابط ضمن القائمة، ابق في صفحة 404 أو وجهه للرئيسية
-        // window.location.replace("/"); 
+            // تنفيذ التحويل بعد ثانية واحدة (أو فوراً)
+            setTimeout(function() {
+                window.location.replace(targetUrl);
+            }, 800);
+        })();
     </script>
 
 </head>
