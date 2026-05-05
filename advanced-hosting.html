@@ -23,40 +23,75 @@
     <!-- Structured Data Update -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org/",
-      "@type": "Product",
-      "name": "الاستضافة المتقدمة - أوبن كارت العرب",
-      "image": "https://opencartarab.com/images/logo-opencartarab.png",
-      "description": "استضافة عالية الأداء مع موارد مخصصة وسرعة NVMe مخصصة لمتاجر أوبن كارت الضخمة.",
-      "brand": {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "الاستضافة المتقدمة - أوبن كارت العرب",
+    "image": "https://opencartarab.com/images/logo-opencartarab.png",
+    "description": "استضافة عالية الأداء مع موارد مخصصة وسرعة NVMe مخصصة لمتاجر أوبن كارت الضخمة.",
+    "brand": {
         "@type": "Brand",
         "name": "أوبن كارت العرب"
-      },
-      "offers": {
+    },
+    "offers": {
         "@type": "Offer",
         "url": "https://opencartarab.com/advanced-hosting.html",
         "priceCurrency": "USD",
         "price": "342.00",
         "availability": "https://schema.org/InStock",
-        "priceValidUntil": "2027-12-31"
-      },
-      "aggregateRating": {
+        "priceValidUntil": "2027-12-31",
+        "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "SA",
+        "returnPolicyCategory": "https://schema.org/UnspecifiedReturnPolicy",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+        },
+        "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0",
+            "currency": "USD"
+        },
+        "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "SA"
+        },
+        "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 1,
+            "unitCode": "DAY"
+            },
+            "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 1,
+            "unitCode": "DAY"
+            }
+        }
+        }
+    },
+    "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.9",
         "reviewCount": "14"
-      },
-      "review": {
+    },
+    "review": {
         "@type": "Review",
         "author": {
-          "@type": "Person",
-          "name": "أبو فهد - متجر عطور"
+        "@type": "Person",
+        "name": "أبو فهد - متجر عطور"
         },
         "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5"
+        "@type": "Rating",
+        "ratingValue": "5"
         },
         "reviewBody": "تجربة ممتازة جدا، انتقلت من استضافة عالمية مشهورة إلى هنا وفرق السرعة كان واضح جدا في لوحة التحكم وعرض المنتجات."
-      }
+    }
     }
     </script>
 

@@ -38,7 +38,42 @@
         "priceCurrency": "USD",
         "price": "156.00",
         "availability": "https://schema.org/InStock",
-        "priceValidUntil": "2027-12-31"
+        "priceValidUntil": "2027-12-31",
+        "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "SA",
+        "returnPolicyCategory": "https://schema.org/UnspecifiedReturnPolicy",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+        },
+        "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0",
+            "currency": "USD"
+        },
+        "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "SA"
+        },
+        "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 1,
+            "unitCode": "DAY"
+            },
+            "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 1,
+            "unitCode": "DAY"
+            }
+        }
+        }
       },
       "aggregateRating": {
         "@type": "AggregateRating",
