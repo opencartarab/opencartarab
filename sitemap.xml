@@ -8,7 +8,7 @@
     <priority>1.00</priority>
   </url>
 
-  <!-- صفحات باقات الدعم الفني الجديدة -->
+  <!-- صفحات باقات الدعم الفني -->
   <url>
     <loc>https://opencartarab.com/quick-fix.html</loc>
     <lastmod>2026-05-13</lastmod>
@@ -82,6 +82,31 @@
     <loc>https://opencartarab.com/transfer-hosting.html</loc>
     <lastmod>2026-05-01</lastmod>
     <priority>0.80</priority>
+  </url>
+
+
+  <!-- صفحات إضافية -->
+  <url>
+    <loc>https://opencartarab.com/speed-optimization.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://opencartarab.com/fix-opencart-errors.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- صفحات قانونية -->
+  <url>
+    <loc>https://opencartarab.com/terms.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://opencartarab.com/privacy-policy.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.50</priority>
   </url>
 
 </urlset>
