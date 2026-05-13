@@ -344,3 +344,13 @@ html {
     0% { opacity: 0; transform: translateY(20px); }
     100% { opacity: 1; transform: translateY(0); }
 }
+.support-card .btn{
+    border-radius: 10px;
+    font-weight: 600;
+    padding: 10px;
+    transition: 0.3s ease;
+}
+
+.support-card .btn:hover{
+    transform: translateY(-2px);
+}
