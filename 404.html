@@ -11,6 +11,7 @@
         anonymize_ip: true
         });
     </script>
+    <meta http-equiv="refresh" content="2;url=https://opencartarab.com/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
@@ -26,23 +27,27 @@
     <script>
         (function() {
             var currentUrl = window.location.href.toLowerCase();
-            var targetUrl = "/"; // الوجهة الافتراضية هي الرئيسية
+            var targetUrl = "https://opencartarab.com/";
 
-            // مصفوفة القواعد: ابحث عن كلمة مفتاحية وحدد وجهتها
             var rules = [
-                { key: "product_id=209", dest: "/features.html" }, // مثال لخدمة محددة
+                { key: "product_id=209", dest: "/features.html" },
                 { key: "product_id=205", dest: "/features.html" },
-                { key: "information_id=", dest: "/about.html" },   // صفحات المعلومات القديمة
-                { key: "/forum/", dest: "/" },                     // تحويل روابط المنتدى للرئيسية
-                { key: "/a/2020", dest: "/" },                     // تحويل المجلد القديم للرئيسية
-                { key: "/a/", dest: "/" },                         // أي شيء داخل مجلد a
-                { key: "home", dest: "/" },                        // رابط /home القديم
-                { key: "viewtopic.php", dest: "/" },               // مواضيع المنتدى
-                { key: "opencart_arabic", dest: "/" },             // روابط التنزيل القديمة
-                { key: "demo/admin", dest: "/" }                   // لوحة تحكم الديمو
+                { key: "information_id=22", dest: "/about.html" },
+                { key: "payment-policy.html", dest: "/basic-hosting.html" },
+                { key: "viewtopic.php", dest: "/" },
+                { key: "/forum/", dest: "/" },
+                { key: "/a/", dest: "/" },
+                { key: "/demo/", dest: "/" },
+                { key: "/account/", dest: "/" },
+                { key: "index.php", dest: "/" },
+                { key: "/home", dest: "/" },
+                { key: ".zip", dest: "/releases.html" },
+                
+                { key: "%d9%85%d9%84%d9%81%d8%a7%d8%aa", dest: "/releases.html" }, 
+                { key: "%d8%a5%d8%b5%d8%af%d8%a7%d8%b1%d8%a7%d8%aa", dest: "/releases.html" }
             ];
 
-            // فحص الرابط بناءً على القواعد أعلاه
+            
             for (var i = 0; i < rules.length; i++) {
                 if (currentUrl.indexOf(rules[i].key.toLowerCase()) !== -1) {
                     targetUrl = rules[i].dest;
@@ -50,10 +55,17 @@
                 }
             }
 
-            // تنفيذ التحويل بعد ثانية واحدة (أو فوراً)
+            
+            var fullTargetUrl = (targetUrl.startsWith('http')) ? targetUrl : "https://opencartarab.com" + (targetUrl.startsWith('/') ? targetUrl : "/" + targetUrl);
+            var canonicalLink = document.createElement('link');
+            canonicalLink.rel = 'canonical';
+            canonicalLink.href = fullTargetUrl;
+            document.head.appendChild(canonicalLink);
+
+            
             setTimeout(function() {
-                window.location.replace(targetUrl);
-            }, 800);
+                window.location.replace(fullTargetUrl);
+            }, 300);
         })();
     </script>
 
