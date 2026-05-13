@@ -4,8 +4,25 @@
   <!-- الصفحة الرئيسية -->
   <url>
     <loc>https://opencartarab.com/</loc>
-    <lastmod>2026-05-01</lastmod>
+    <lastmod>2026-05-13</lastmod>
     <priority>1.00</priority>
+  </url>
+
+  <!-- صفحات باقات الدعم الفني الجديدة -->
+  <url>
+    <loc>https://opencartarab.com/quick-fix.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://opencartarab.com/store-upgrade.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://opencartarab.com/pro-support.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.90</priority>
   </url>
 
   <!-- الصفحة المخصصة للكلمة المفتاحية (متجر الكتروني مجاني عربي) -->
