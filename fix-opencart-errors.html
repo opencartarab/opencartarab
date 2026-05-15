@@ -8,9 +8,7 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-14L9509493', {
-            anonymize_ip: true
-        });
+        gtag('config', 'G-14L9509493', { anonymize_ip: true });
     </script>
 
     <meta charset="UTF-8">
@@ -19,471 +17,551 @@
     <title>إصلاح أخطاء OpenCart وحل المشاكل التقنية | دعم فني متخصص لأوبن كارت</title>
 
     <meta name="description" content="خدمة احترافية لإصلاح أخطاء OpenCart وحل مشاكل القوالب والإضافات وأخطاء PHP والشاشة البيضاء ومشاكل الترقية والأداء.">
-
     <meta name="keywords" content="إصلاح أخطاء OpenCart, حل مشاكل OpenCart, دعم OpenCart, خطأ 500 OpenCart, مشاكل القوالب, الشاشة البيضاء">
-
     <meta name="robots" content="index, follow">
     <meta name="author" content="OpenCart Arab">
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="إصلاح أخطاء OpenCart وحل المشاكل التقنية">
     <meta property="og:description" content="دعم فني متخصص لحل مشاكل OpenCart وإصلاح الأخطاء التقنية بسرعة واحترافية.">
     <meta property="og:image" content="https://opencartarab.com/images/logo-opencartarab.png">
     <meta property="og:url" content="https://opencartarab.com/fix-opencart-errors.html">
     <meta property="og:locale" content="ar_AR">
-
     <meta name="twitter:card" content="summary_large_image">
 
     <link rel="canonical" href="https://opencartarab.com/fix-opencart-errors.html">
 
-    <!-- Fonts & CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-
     <link rel="stylesheet" href="style.css">
 
-    <!-- Schema -->
     <script type="application/ld+json">
     {
-      "@context":"https://schema.org",
-      "@type":"Service",
-      "serviceType":"إصلاح مشاكل وأخطاء OpenCart",
-      "provider":{
-        "@type":"Organization",
-        "name":"أوبن كارت العرب",
-        "url":"https://opencartarab.com/"
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "إصلاح مشاكل وأخطاء OpenCart",
+      "provider": {
+        "@type": "Organization",
+        "name": "أوبن كارت العرب",
+        "url": "https://opencartarab.com/"
       },
-      "areaServed":"SA",
-      "description":"خدمة احترافية لإصلاح أخطاء OpenCart وحل المشاكل التقنية ومشاكل القوالب والإضافات."
+      "areaServed": "SA",
+      "description": "خدمة احترافية لإصلاح أخطاء OpenCart وحل المشاكل التقنية ومشاكل القوالب والإضافات."
     }
     </script>
 
+    <style>
+        /* ===== تخصيصات صفحة إصلاح الأخطاء ===== */
+        .theme-fix-errors .sub-hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #c0392b 100%);
+            border-bottom: 4px solid #e74c3c;
+            padding: 70px 0;
+        }
+
+        /* breadcrumb */
+        .page-breadcrumb {
+            background: transparent;
+            padding: 0;
+            margin-bottom: 8px;
+        }
+        .page-breadcrumb .breadcrumb-item a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+        .page-breadcrumb .breadcrumb-item.active {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.85rem;
+        }
+        .page-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* قسم التشخيص */
+        .diagnosis-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            margin-bottom: 16px;
+            border-right: 4px solid transparent;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .diagnosis-step:hover {
+            border-right-color: #e74c3c;
+            box-shadow: 0 4px 20px rgba(231,76,60,0.1);
+        }
+        .diagnosis-step .step-num {
+            min-width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #c0392b, #e74c3c);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        .diagnosis-step h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: #2c3e50; }
+        .diagnosis-step p { font-size: 0.88rem; color: #666; margin: 0; line-height: 1.7; }
+
+        /* error type cards */
+        .error-type-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            height: 100%;
+            border-top: 4px solid transparent;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .error-type-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+        .error-type-card.red   { border-top-color: #e74c3c; }
+        .error-type-card.blue  { border-top-color: #3498db; }
+        .error-type-card.amber { border-top-color: #f39c12; }
+        .error-type-card.green { border-top-color: #27ae60; }
+        .error-type-card.purple{ border-top-color: #8e44ad; }
+        .error-type-card.dark  { border-top-color: #2c3e50; }
+        .error-type-card .error-icon {
+            width: 52px; height: 52px;
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 16px;
+            font-size: 1.4rem;
+        }
+        .error-type-card.red    .error-icon { background:#fde8e8; color:#e74c3c; }
+        .error-type-card.blue   .error-icon { background:#e8f4fd; color:#3498db; }
+        .error-type-card.amber  .error-icon { background:#fef9e7; color:#f39c12; }
+        .error-type-card.green  .error-icon { background:#eafaf1; color:#27ae60; }
+        .error-type-card.purple .error-icon { background:#f5eef8; color:#8e44ad; }
+        .error-type-card.dark   .error-icon { background:#eaecee; color:#2c3e50; }
+        .error-type-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: #2c3e50; }
+        .error-type-card p  { font-size: 0.87rem; color: #666; line-height: 1.8; margin: 0; }
+        .error-type-card .error-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 2px 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .error-type-card.red    .error-tag { background:#fde8e8; color:#c0392b; }
+        .error-type-card.blue   .error-tag { background:#e8f4fd; color:#2980b9; }
+        .error-type-card.amber  .error-tag { background:#fef9e7; color:#d68910; }
+        .error-type-card.green  .error-tag { background:#eafaf1; color:#1e8449; }
+        .error-type-card.purple .error-tag { background:#f5eef8; color:#7d3c98; }
+        .error-type-card.dark   .error-tag { background:#eaecee; color:#1a252f; }
+
+        /* section headers */
+        .section-eyebrow {
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #e74c3c;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* cta box */
+        .cta-fix-box {
+            background: linear-gradient(135deg, #1a1a2e 0%, #c0392b 100%);
+            border-radius: 24px;
+            padding: 50px;
+            text-align: center;
+            color: #fff;
+        }
+        .cta-fix-box h2 { font-weight: 800; margin-bottom: 12px; }
+        .cta-fix-box p  { opacity: 0.85; margin-bottom: 28px; font-size: 1.05rem; }
+
+        /* info strip */
+        .info-strip {
+            background: #fff8f8;
+            border: 1px solid #fde8e8;
+            border-radius: 12px;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 32px;
+        }
+        .info-strip i { color: #e74c3c; font-size: 1.3rem; flex-shrink: 0; }
+        .info-strip p { margin: 0; font-size: 0.92rem; color: #555; line-height: 1.7; }
+    </style>
+
 </head>
 
-<body>
+<body class="theme-fix-errors">
 
 <div id="header-placeholder"></div>
 
-<!-- HERO -->
-<section class="hero overflow-hidden">
-
+<!-- SUB-HERO -->
+<section class="sub-hero">
     <div class="container">
 
+        <nav aria-label="breadcrumb" class="page-breadcrumb mb-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">الرئيسية</a></li>
+                <li class="breadcrumb-item active">إصلاح أخطاء OpenCart</li>
+            </ol>
+        </nav>
+
         <div class="row align-items-center">
-
-            <div class="col-lg-6 mb-5 mb-lg-0">
-
+            <div class="col-lg-7 mb-4 mb-lg-0">
                 <span class="badge bg-danger px-3 py-2 mb-3">
-                    دعم فني متخصص في OpenCart
+                    <i class="fas fa-wrench me-1"></i> دعم فني متخصص
                 </span>
-
-                <h1 class="display-4 fw-black mb-4">
+                <h1 class="display-5 fw-black mb-3">
                     إصلاح أخطاء OpenCart وحل المشاكل التقنية
                 </h1>
-
-                <p class="lead mb-4 text-light">
-                    نقدم خدمة احترافية لإصلاح مشاكل OpenCart وأخطاء القوالب والإضافات وأخطاء PHP ومشاكل الترقية والأداء مع دعم فني سريع ومتخصص.
+                <p class="lead mb-4 opacity-90">
+                    متجرك يظهر شاشة بيضاء؟ خطأ 500؟ إضافة خربت كل شيء؟ نشخّص المشكلة ونصلحها بسرعة — مع شرح كامل لما حصل وكيف تتجنبه مستقبلاً.
                 </p>
-
                 <div class="d-flex flex-wrap gap-3">
-
-                    <a href="https://wa.me/966559924572"
-                       class="btn btn-light btn-lg px-4 fw-bold">
-                        اطلب الدعم الآن
+                    <a href="https://wa.me/966559924572" class="btn btn-light btn-lg px-4 fw-bold">
+                        <i class="fab fa-whatsapp me-2"></i>اطلب الإصلاح الآن
                     </a>
-
-                    <a href="#services"
-                       class="btn btn-outline-light btn-lg px-4">
-                        استكشف الخدمة
+                    <a href="#error-types" class="btn btn-outline-light btn-lg px-4">
+                        شوف أنواع الأخطاء
                     </a>
-
                 </div>
-
             </div>
-
-            <div class="col-lg-6 text-center">
-
-                <i class="fas fa-screwdriver-wrench fa-10x opacity-25 text-white animated"></i>
-
+            <div class="col-lg-5 text-center d-none d-lg-block">
+                <i class="fas fa-screwdriver-wrench fa-8x opacity-15 text-white"></i>
             </div>
-
         </div>
-
     </div>
-
 </section>
 
-<!-- المشاكل -->
-<section class="py-5 bg-white">
+<!-- تنبيه سريع -->
+<section class="py-4">
+    <div class="container">
+        <div class="info-strip">
+            <i class="fas fa-clock"></i>
+            <p><strong>معظم أخطاء OpenCart تُحَل خلال 24 ساعة.</strong> أرسل لنا رابط متجرك ووصف المشكلة عبر واتساب وسنبدأ التشخيص مباشرة — بدون انتظار.</p>
+        </div>
+    </div>
+</section>
 
+<!-- أنواع الأخطاء الشائعة — المحتوى التعليمي -->
+<section id="error-types" class="py-5 bg-white">
     <div class="container">
 
         <div class="text-center mb-5">
-
-            <h2 class="fw-bold">
-                أشهر مشاكل OpenCart التي نقوم بحلها
-            </h2>
-
-            <p class="text-muted">
-                مشاكل تقنية شائعة تؤثر على المتاجر الإلكترونية وتسبب توقف المبيعات أو ضعف الأداء
-            </p>
-
+            <span class="section-eyebrow">دليل تعليمي</span>
+            <h2 class="fw-bold">أشهر أخطاء OpenCart — وما الذي يسببها؟</h2>
+            <p class="text-muted mx-auto" style="max-width:620px;">قبل أن تطلب المساعدة، تعرّف على طبيعة المشكلة. هذا يساعدك على وصفها بدقة والحصول على حل أسرع.</p>
         </div>
 
         <div class="row g-4">
 
-            <div class="col-md-4">
-
-                <div class="custom-card p-4 shadow-sm h-100 text-center">
-
-                    <i class="fas fa-triangle-exclamation fa-3x text-danger mb-3"></i>
-
-                    <h3 class="h5 fw-bold">
-                        أخطاء PHP و Error 500
-                    </h3>
-
-                    <p class="text-muted">
-                        إصلاح أخطاء السيرفر والمشاكل البرمجية التي تسبب تعطل المتجر أو لوحة التحكم.
+            <div class="col-md-6 col-lg-4">
+                <div class="error-type-card red">
+                    <div class="error-icon"><i class="fas fa-server"></i></div>
+                    <span class="error-tag">خطأ شائع جداً</span>
+                    <h4>الشاشة البيضاء / Error 500</h4>
+                    <p>
+                        الأكثر رعباً لأصحاب المتاجر. يحدث غالباً بسبب <strong>خطأ PHP</strong> صامت، أو نفاد الـ memory_limit، أو تعارض بين إضافتين. الحل الأول: تفعيل error reporting أو مراجعة error.log في السيرفر.
                     </p>
-
                 </div>
-
             </div>
 
-            <div class="col-md-4">
-
-                <div class="custom-card p-4 shadow-sm h-100 text-center">
-
-                    <i class="fas fa-puzzle-piece fa-3x text-primary mb-3"></i>
-
-                    <h3 class="h5 fw-bold">
-                        مشاكل الإضافات والقوالب
-                    </h3>
-
-                    <p class="text-muted">
-                        حل تعارضات الإضافات والقوالب ومشاكل التوافق بعد التحديثات.
+            <div class="col-md-6 col-lg-4">
+                <div class="error-type-card blue">
+                    <div class="error-icon"><i class="fas fa-puzzle-piece"></i></div>
+                    <span class="error-tag">بعد التحديث</span>
+                    <h4>تعارض الإضافات والقوالب</h4>
+                    <p>
+                        كل إضافة تعدّل ملفات أساسية في OpenCart. عند تثبيت أكثر من إضافة تعدّل نفس الملف يحدث تعارض. الأعراض: تصميم مكسور، أزرار لا تعمل، أخطاء JavaScript في الكونسول.
                     </p>
-
                 </div>
-
             </div>
 
-            <div class="col-md-4">
-
-                <div class="custom-card p-4 shadow-sm h-100 text-center">
-
-                    <i class="fas fa-display fa-3x text-warning mb-3"></i>
-
-                    <h3 class="h5 fw-bold">
-                        الشاشة البيضاء والتعليق
-                    </h3>
-
-                    <p class="text-muted">
-                        معالجة مشاكل توقف الموقع أو ظهور صفحات فارغة أو بطء شديد في الأداء.
+            <div class="col-md-6 col-lg-4">
+                <div class="error-type-card amber">
+                    <div class="error-icon"><i class="fas fa-database"></i></div>
+                    <span class="error-tag">قاعدة البيانات</span>
+                    <h4>أخطاء MySQL وقاعدة البيانات</h4>
+                    <p>
+                        رسائل مثل "Table doesn't exist" أو "Unknown column" تشير إلى مشكلة في هيكل قاعدة البيانات، وتحدث غالباً بعد ترقية غير مكتملة أو استيراد بيانات خاطئ.
                     </p>
-
                 </div>
+            </div>
 
+            <div class="col-md-6 col-lg-4">
+                <div class="error-type-card green">
+                    <div class="error-icon"><i class="fas fa-envelope"></i></div>
+                    <span class="error-tag">تواصل مع العملاء</span>
+                    <h4>مشاكل إرسال البريد والإشعارات</h4>
+                    <p>
+                        العملاء لا يتلقون إيميلات تأكيد الطلبات؟ المشكلة إما في إعدادات SMTP أو أن المتجر يستخدم mail() الافتراضية وسيرفرك يحجبها. الحل: ضبط SMTP عبر Gmail أو Mailgun.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="error-type-card purple">
+                    <div class="error-icon"><i class="fas fa-shield-halved"></i></div>
+                    <span class="error-tag">أمان</span>
+                    <h4>اختراق أو إضافة ملفات مشبوهة</h4>
+                    <p>
+                        إعلانات غريبة تظهر في متجرك، أو توجيه لمواقع أخرى؟ هذه علامة على وجود ملفات ضارة. يحدث عادةً بسبب كلمات مرور ضعيفة أو إضافات من مصادر غير موثوقة.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="error-type-card dark">
+                    <div class="error-icon"><i class="fas fa-arrow-up-right-dots"></i></div>
+                    <span class="error-tag">الترقية</span>
+                    <h4>أخطاء بعد ترقية OpenCart</h4>
+                    <p>
+                        الترقية من إصدار لآخر تُعيد كتابة ملفات core. إذا عدّلت ملفات مباشرة بدون Override ستُفقَد تعديلاتك، وإذا لم تُحدَّث قاعدة البيانات ستظهر أخطاء في لوحة التحكم.
+                    </p>
+                </div>
             </div>
 
         </div>
-
     </div>
-
 </section>
 
-<!-- الخدمات -->
-<section id="services" class="py-5">
-
+<!-- كيف نعمل — خطوات التشخيص -->
+<section class="py-5">
     <div class="container">
+        <div class="row align-items-start g-5">
 
-        <div class="text-center mb-5">
-
-            <h2 class="fw-bold">
-                ماذا تشمل خدمة إصلاح مشاكل OpenCart؟
-            </h2>
-
-        </div>
-
-        <div class="row g-4">
-
-            <div class="col-lg-6">
-
-                <div class="details-card h-100">
-
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>إصلاح أخطاء PHP والمشاكل البرمجية</span>
-                    </div>
-
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>حل مشاكل القوالب والتصميم</span>
-                    </div>
-
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>معالجة أخطاء الإضافات والتعارضات</span>
-                    </div>
-
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>إصلاح مشاكل لوحة التحكم</span>
-                    </div>
-
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>حل مشاكل البريد والإشعارات</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="col-lg-6">
-
-                <div class="details-card h-100">
-
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>إصلاح مشاكل قواعد البيانات</span>
-                    </div>
-
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>معالجة أخطاء الترقية والتحديث</span>
-                    </div>
-
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>استعادة المتجر بعد الأعطال</span>
-                    </div>
-
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>تحسين الأمان والحماية</span>
-                    </div>
-
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>فحص شامل لأداء المتجر</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- لماذا نحن -->
-<section class="py-5 bg-white">
-
-    <div class="container">
-
-        <div class="row align-items-center">
-
-            <div class="col-lg-6 mb-4">
-
-                <h2 class="fw-bold mb-4">
-                    لماذا تختار أوبن كارت العرب؟
-                </h2>
-
-                <p class="text-muted mb-4">
-                    لدينا خبرة متخصصة في OpenCart وتعامل مستمر مع مشاكل المتاجر العربية والإضافات والقوالب المختلفة.
+            <div class="col-lg-5">
+                <span class="section-eyebrow">طريقة عملنا</span>
+                <h2 class="fw-bold mb-3">كيف نشخّص ونصلح المشكلة؟</h2>
+                <p class="text-muted">
+                    لا نعمل عشوائياً. كل حالة تمر بمراحل تشخيصية واضحة حتى نصل للجذر الحقيقي للمشكلة — مش بس نخفيها مؤقتاً.
                 </p>
-
-                <ul class="list-unstyled">
-
-                    <li class="mb-3">
-                        <i class="fas fa-check text-success me-2"></i>
-                        خبرة متخصصة في OpenCart
-                    </li>
-
-                    <li class="mb-3">
-                        <i class="fas fa-check text-success me-2"></i>
-                        تشخيص سريع للمشاكل
-                    </li>
-
-                    <li class="mb-3">
-                        <i class="fas fa-check text-success me-2"></i>
-                        حلول عملية وآمنة
-                    </li>
-
-                    <li class="mb-3">
-                        <i class="fas fa-check text-success me-2"></i>
-                        دعم فني باللغة العربية
-                    </li>
-
-                </ul>
-
+                <a href="https://wa.me/966559924572" class="btn btn-danger px-4 py-2 fw-bold mt-3">
+                    <i class="fab fa-whatsapp me-2"></i>ابدأ الآن
+                </a>
             </div>
 
-            <div class="col-lg-6">
-
-                <div class="custom-card p-5 shadow-sm text-center">
-
-                    <i class="fas fa-shield-halved fa-4x text-primary mb-4"></i>
-
-                    <h3 class="fw-bold">
-                        حلول تقنية سريعة لمتاجر OpenCart
-                    </h3>
-
+            <div class="col-lg-7">
+                <div class="diagnosis-step">
+                    <div class="step-num">1</div>
+                    <div>
+                        <h4>استقبال المشكلة وجمع المعلومات</h4>
+                        <p>نطلب منك: رابط المتجر، وصف المشكلة، ووقت بدء ظهورها، وآخر تعديل جريت عليه. هذه المعلومات توفر 70% من وقت التشخيص.</p>
+                    </div>
                 </div>
-
+                <div class="diagnosis-step">
+                    <div class="step-num">2</div>
+                    <div>
+                        <h4>فحص لوحات التحكم والسجلات</h4>
+                        <p>نراجع error logs في السيرفر وفي OpenCart نفسه، ونفحص الكونسول في المتصفح للكشف عن أخطاء JavaScript مخفية.</p>
+                    </div>
+                </div>
+                <div class="diagnosis-step">
+                    <div class="step-num">3</div>
+                    <div>
+                        <h4>عزل المشكلة وتحديد مصدرها</h4>
+                        <p>نعطّل الإضافات تدريجياً أو نحوّل لقالب افتراضي لنحدد ما إذا كانت المشكلة في الكود الأساسي أو في إضافة بعينها.</p>
+                    </div>
+                </div>
+                <div class="diagnosis-step">
+                    <div class="step-num">4</div>
+                    <div>
+                        <h4>الإصلاح مع أخذ نسخة احتياطية أولاً</h4>
+                        <p>لا نلمس شيئاً قبل أخذ نسخة احتياطية كاملة. بعد الإصلاح نختبر على بيئة staging قبل الرفع للإنتاج كلما أمكن.</p>
+                    </div>
+                </div>
+                <div class="diagnosis-step">
+                    <div class="step-num">5</div>
+                    <div>
+                        <h4>تقرير ما تم ونصائح لتجنب التكرار</h4>
+                        <p>بعد الإصلاح نشرح لك بالعربي ما كان المشكلة وكيف تجنبها مستقبلاً — لأن الهدف يكون عندك فهم، مش مجرد حل.</p>
+                    </div>
+                </div>
             </div>
 
         </div>
-
     </div>
+</section>
 
+<!-- ماذا تشمل الخدمة -->
+<section id="services" class="py-5 bg-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="section-eyebrow">الخدمة</span>
+            <h2 class="fw-bold">ماذا تشمل خدمة إصلاح مشاكل OpenCart؟</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="details-card h-100">
+                    <div class="feature-item"><i class="fas fa-check-circle"></i><span>إصلاح أخطاء PHP والمشاكل البرمجية</span></div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i><span>حل مشاكل القوالب والتصميم</span></div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i><span>معالجة أخطاء الإضافات والتعارضات</span></div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i><span>إصلاح مشاكل لوحة التحكم</span></div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i><span>حل مشاكل البريد والإشعارات</span></div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="details-card h-100">
+                    <div class="feature-item"><i class="fas fa-check-circle"></i><span>إصلاح مشاكل قواعد البيانات</span></div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i><span>معالجة أخطاء الترقية والتحديث</span></div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i><span>استعادة المتجر بعد الأعطال</span></div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i><span>فحص وإزالة الملفات المشبوهة</span></div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i><span>تقرير شامل بعد الإصلاح</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- نصيحة تعليمية — متى تتصل وبما تجهّز -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+                <span class="section-eyebrow">نصيحة قبل التواصل</span>
+                <h2 class="fw-bold mb-4">ما المعلومات التي تسرّع الحل؟</h2>
+                <p class="text-muted mb-4">كلما جهّزت هذه المعلومات مسبقاً، كلما وصلنا للحل أسرع:</p>
+                <ul class="list-unstyled">
+                    <li class="mb-3 d-flex align-items-start gap-2">
+                        <i class="fas fa-circle-check text-danger mt-1"></i>
+                        <span><strong>رابط المتجر</strong> — وأي رسالة خطأ تظهر على الشاشة</span>
+                    </li>
+                    <li class="mb-3 d-flex align-items-start gap-2">
+                        <i class="fas fa-circle-check text-danger mt-1"></i>
+                        <span><strong>إصدار OpenCart</strong> — تجده في System → Settings → Server</span>
+                    </li>
+                    <li class="mb-3 d-flex align-items-start gap-2">
+                        <i class="fas fa-circle-check text-danger mt-1"></i>
+                        <span><strong>آخر تعديل</strong> — ثبّت إضافة جديدة؟ حدّثت شيئاً؟ غيّرت قالب؟</span>
+                    </li>
+                    <li class="mb-3 d-flex align-items-start gap-2">
+                        <i class="fas fa-circle-check text-danger mt-1"></i>
+                        <span><strong>وقت ظهور المشكلة</strong> — فجأة أم تدريجياً؟</span>
+                    </li>
+                    <li class="d-flex align-items-start gap-2">
+                        <i class="fas fa-circle-check text-danger mt-1"></i>
+                        <span><strong>لقطة شاشة</strong> للخطأ إذا ظهرت رسالة — حتى لو بالإنجليزي</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <div class="custom-card p-5 shadow-sm text-center">
+                    <div class="mb-4">
+                        <i class="fas fa-shield-halved fa-4x text-danger opacity-75"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">خبرة منذ 2009 مع متاجر OpenCart العربية</h3>
+                    <p class="text-muted">شفنا كل أنواع الأخطاء — من أبسط مشكلة cache لغاية أصعب حالات اختراق. ما في مشكلة ما شفناها قبل.</p>
+                    <div class="row g-3 mt-3 text-center">
+                        <div class="col-4">
+                            <div class="fw-bold fs-4 text-danger">+500</div>
+                            <div class="text-muted small">متجر صُلِح</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="fw-bold fs-4 text-danger">24h</div>
+                            <div class="text-muted small">متوسط الحل</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="fw-bold fs-4 text-danger">100%</div>
+                            <div class="text-muted small">عربي بالكامل</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- CTA -->
 <section class="py-5">
-
     <div class="container">
-
-        <div class="details-card text-center">
-
-            <span class="badge bg-primary px-3 py-2 mb-3">
-                فحص وتشخيص سريع
-            </span>
-
-            <h2 class="fw-bold mb-4">
-                هل تواجه مشكلة في متجرك؟
-            </h2>
-
-            <p class="text-muted mb-4">
-                تواصل معنا الآن وسنساعدك في تشخيص المشكلة وتقديم الحل المناسب بأسرع وقت ممكن.
-            </p>
-
-            <a href="https://wa.me/966559924572"
-               class="btn btn-success btn-lg px-5">
-                تواصل عبر واتساب
+        <div class="cta-fix-box">
+            <span class="badge bg-danger mb-3 px-3 py-2">تشخيص سريع بدون تكلفة</span>
+            <h2>هل تواجه مشكلة في متجرك الآن؟</h2>
+            <p>أرسل لنا رابط المتجر ووصف المشكلة — وسنرد عليك بتشخيص أولي مجاني خلال ساعات</p>
+            <a href="https://wa.me/966559924572" class="btn btn-light btn-lg px-5 fw-bold">
+                <i class="fab fa-whatsapp me-2 text-success"></i>تواصل عبر واتساب
             </a>
-
         </div>
-
     </div>
-
 </section>
 
-<!-- FAQ -->
+<!-- الأسئلة الشائعة -->
 <section class="py-5 bg-white">
-
-    <div class="container">
-
+    <div class="container" style="max-width:760px;">
         <div class="text-center mb-5">
-
-            <h2 class="fw-bold">
-                الأسئلة الشائعة
-            </h2>
-
+            <span class="section-eyebrow">أسئلة شائعة</span>
+            <h2 class="fw-bold">أسئلة يسألها أصحاب المتاجر</h2>
         </div>
-
         <div class="accordion" id="faqAccordion">
 
             <div class="accordion-item">
-
                 <h2 class="accordion-header">
-
-                    <button class="accordion-button"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#faq1">
-
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
                         هل يتم إصلاح جميع مشاكل OpenCart؟
-
                     </button>
-
                 </h2>
-
-                <div id="faq1"
-                     class="accordion-collapse collapse show"
-                     data-bs-parent="#faqAccordion">
-
+                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
                     <div class="accordion-body">
-                        يتم فحص المشكلة أولاً ثم تحديد إمكانية الإصلاح والمدة المتوقعة بشكل واضح.
+                        نفحص المشكلة أولاً ونحدد إمكانية الإصلاح والمدة المتوقعة قبل أي التزام. إذا كانت المشكلة خارج نطاق خدمتنا سنخبرك بصراحة ونوجهك للخيار الصح.
                     </div>
-
                 </div>
-
             </div>
 
             <div class="accordion-item mt-3">
-
                 <h2 class="accordion-header">
-
-                    <button class="accordion-button collapsed"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#faq2">
-
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
                         كم يستغرق إصلاح المشكلة؟
-
                     </button>
-
                 </h2>
-
-                <div id="faq2"
-                     class="accordion-collapse collapse"
-                     data-bs-parent="#faqAccordion">
-
+                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                     <div class="accordion-body">
-                        يعتمد ذلك على نوع المشكلة، لكن أغلب المشاكل يتم حلها خلال 24 إلى 48 ساعة.
+                        أغلب المشاكل الشائعة (شاشة بيضاء، أخطاء PHP، تعارض إضافات) تُحَل خلال 24 ساعة. المشاكل المعقدة مثل الاختراق أو فساد قاعدة البيانات قد تحتاج 48-72 ساعة.
                     </div>
-
                 </div>
-
             </div>
 
             <div class="accordion-item mt-3">
-
                 <h2 class="accordion-header">
-
-                    <button class="accordion-button collapsed"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#faq3">
-
-                        هل الخدمة تشمل مشاكل القوالب والإضافات؟
-
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                        هل تحتاجون بيانات دخول المتجر؟
                     </button>
-
                 </h2>
-
-                <div id="faq3"
-                     class="accordion-collapse collapse"
-                     data-bs-parent="#faqAccordion">
-
+                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                     <div class="accordion-body">
-                        نعم، يتم التعامل مع مشاكل التوافق والتعارضات الخاصة بالقوالب والإضافات.
+                        نعم، معظم أعمال الإصلاح تحتاج وصولاً للوحة التحكم والـ FTP أو cPanel. نحن نتعامل مع هذه البيانات بسرية تامة ونوصي بتغيير كلمات المرور بعد انتهاء العمل.
                     </div>
-
                 </div>
+            </div>
 
+            <div class="accordion-item mt-3">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                        هل تشمل الخدمة مشاكل القوالب والإضافات المدفوعة؟
+                    </button>
+                </h2>
+                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        نعم، نتعامل مع مشاكل التوافق والتعارضات سواء كانت الإضافة مجانية أو مدفوعة. إذا كانت المشكلة في كود الإضافة نفسها وتحتاج تعديلاً خاصاً سنحدد تكلفة ذلك مسبقاً.
+                    </div>
+                </div>
             </div>
 
         </div>
-
     </div>
-
 </section>
 
 <div id="footer-placeholder"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 <script src="main.js"></script>
 
 </body>

@@ -2,442 +2,616 @@
 <html lang="ar" dir="rtl">
 <head>
 
-    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-14L9509493"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-14L9509493', {
-            anonymize_ip: true
-        });
+        gtag('config', 'G-14L9509493', { anonymize_ip: true });
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>تسريع متجر OpenCart وتحسين الأداء | تحسين سرعة أوبن كارت و Core Web Vitals</title>
-
-    <meta name="description" content="خدمة احترافية لتسريع متجر OpenCart وتحسين الأداء ورفع نتائج Core Web Vitals وتقليل وقت تحميل الصفحات وتحسين تجربة المستخدم وSEO.">
-
-    <meta name="keywords" content="تسريع OpenCart, تحسين سرعة متجر إلكتروني, تحسين أداء OpenCart, Core Web Vitals, حل بطء OpenCart">
-
+    <title>تسريع متجر OpenCart وتحسين الأداء | دليل Core Web Vitals وخدمة متخصصة</title>
+    <meta name="description" content="دليل شامل لتسريع متجر OpenCart وتحسين نتائج Google PageSpeed وCore Web Vitals. تعلّم أسباب البطء وطرق الحل — أو دعنا نتكفل بذلك كاملاً.">
+    <meta name="keywords" content="تسريع OpenCart, تحسين سرعة متجر إلكتروني, Core Web Vitals OpenCart, Google PageSpeed OpenCart, حل بطء OpenCart">
     <meta name="robots" content="index, follow">
     <meta name="author" content="OpenCart Arab">
-
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="خدمة تسريع متجر OpenCart وتحسين الأداء">
-    <meta property="og:description" content="تحسين سرعة متجر OpenCart وتقليل وقت التحميل وتحسين تجربة المستخدم ونتائج Google PageSpeed.">
+    <meta property="og:title" content="تسريع متجر OpenCart وتحسين الأداء">
+    <meta property="og:description" content="دليل شامل لتسريع OpenCart وخدمة تحسين أداء متخصصة. PageSpeed، Core Web Vitals، وكاش متقدم.">
     <meta property="og:image" content="https://opencartarab.com/images/logo-opencartarab.png">
     <meta property="og:url" content="https://opencartarab.com/speed-optimization.html">
     <meta property="og:locale" content="ar_AR">
-
     <meta name="twitter:card" content="summary_large_image">
-
     <link rel="canonical" href="https://opencartarab.com/speed-optimization.html">
 
-    <!-- Fonts & CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-
     <link rel="stylesheet" href="style.css">
 
-    <!-- Schema -->
     <script type="application/ld+json">
     {
-      "@context":"https://schema.org",
-      "@type":"Service",
-      "serviceType":"تحسين سرعة متجر OpenCart",
-      "provider":{
-        "@type":"Organization",
-        "name":"أوبن كارت العرب",
-        "url":"https://opencartarab.com/"
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "تحسين سرعة متجر OpenCart",
+      "provider": {
+        "@type": "Organization",
+        "name": "أوبن كارت العرب",
+        "url": "https://opencartarab.com/"
       },
-      "areaServed":"SA",
-      "description":"خدمة احترافية لتسريع متجر OpenCart وتحسين الأداء ورفع نتائج Core Web Vitals."
+      "areaServed": "SA",
+      "description": "خدمة احترافية لتسريع متجر OpenCart وتحسين الأداء ورفع نتائج Core Web Vitals."
     }
     </script>
 
-</head>
+    <style>
+        /* ===== تخصيصات صفحة تسريع الأداء ===== */
+        .theme-speed .sub-hero {
+            background: linear-gradient(135deg, #0f2027 0%, #1a6b3c 100%);
+            border-bottom: 4px solid #27ae60;
+            padding: 70px 0;
+        }
 
-<body>
+        .page-breadcrumb .breadcrumb-item a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+        .page-breadcrumb .breadcrumb-item.active { color: rgba(255,255,255,0.9); font-size: 0.85rem; }
+        .page-breadcrumb .breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,0.4); }
+
+        .section-eyebrow {
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #27ae60;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* بطاقات الأسباب التعليمية */
+        .cause-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            height: 100%;
+            border-top: 4px solid transparent;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .cause-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); }
+        .cause-card.green  { border-top-color: #27ae60; }
+        .cause-card.blue   { border-top-color: #3498db; }
+        .cause-card.amber  { border-top-color: #f39c12; }
+        .cause-card.red    { border-top-color: #e74c3c; }
+        .cause-card.purple { border-top-color: #8e44ad; }
+        .cause-card.teal   { border-top-color: #16a085; }
+
+        .cause-card .cause-icon {
+            width: 52px; height: 52px;
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 16px;
+            font-size: 1.4rem;
+        }
+        .cause-card.green  .cause-icon { background:#eafaf1; color:#27ae60; }
+        .cause-card.blue   .cause-icon { background:#e8f4fd; color:#3498db; }
+        .cause-card.amber  .cause-icon { background:#fef9e7; color:#f39c12; }
+        .cause-card.red    .cause-icon { background:#fde8e8; color:#e74c3c; }
+        .cause-card.purple .cause-icon { background:#f5eef8; color:#8e44ad; }
+        .cause-card.teal   .cause-icon { background:#e8f8f5; color:#16a085; }
+
+        .cause-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: #2c3e50; }
+        .cause-card p  { font-size: 0.87rem; color: #666; line-height: 1.8; margin: 0; }
+        .cause-card .tip-box {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 10px 14px;
+            margin-top: 12px;
+            font-size: 0.83rem;
+            color: #555;
+            border-right: 3px solid #dee2e6;
+        }
+
+        /* مقياس السرعة التعليمي */
+        .speed-meter {
+            background: #fff;
+            border-radius: 20px;
+            padding: 36px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+        }
+        .speed-bar-wrap { margin-bottom: 20px; }
+        .speed-bar-label {
+            display: flex; justify-content: space-between;
+            font-size: 0.88rem; font-weight: 600; margin-bottom: 6px;
+        }
+        .speed-bar { height: 10px; border-radius: 20px; background: #f0f0f0; overflow: hidden; }
+        .speed-bar-fill { height: 100%; border-radius: 20px; }
+        .fill-red    { background: linear-gradient(90deg, #e74c3c, #c0392b); width: 25%; }
+        .fill-amber  { background: linear-gradient(90deg, #f39c12, #d68910); width: 60%; }
+        .fill-green  { background: linear-gradient(90deg, #27ae60, #1e8449); width: 92%; }
+
+        /* خطوات التحسين */
+        .opt-step {
+            display: flex; align-items: flex-start; gap: 18px;
+            background: #fff;
+            border-radius: 14px;
+            padding: 22px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            margin-bottom: 16px;
+            border-right: 4px solid transparent;
+            transition: border-color 0.3s;
+        }
+        .opt-step:hover { border-right-color: #27ae60; }
+        .opt-step .step-num {
+            min-width: 42px; height: 42px;
+            background: linear-gradient(135deg, #1e8449, #27ae60);
+            color: #fff; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 1rem;
+        }
+        .opt-step h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: #2c3e50; }
+        .opt-step p  { font-size: 0.87rem; color: #666; margin: 0; line-height: 1.7; }
+
+        /* CWV indicators */
+        .cwv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .cwv-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px 20px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+        .cwv-card .cwv-label { font-size: 0.78rem; color: #999; margin-bottom: 6px; font-weight: 600; }
+        .cwv-card .cwv-metric { font-size: 1.6rem; font-weight: 900; line-height: 1; margin-bottom: 6px; }
+        .cwv-card .cwv-name { font-size: 0.82rem; color: #555; font-weight: 600; }
+        .cwv-card.good  .cwv-metric { color: #27ae60; }
+        .cwv-card.needs .cwv-metric { color: #f39c12; }
+        .cwv-card .cwv-icon { font-size: 1.6rem; margin-bottom: 10px; }
+        .cwv-card.good .cwv-icon { color: #27ae60; }
+        .cwv-card.needs .cwv-icon { color: #f39c12; }
+
+        /* CTA */
+        .cta-speed-box {
+            background: linear-gradient(135deg, #0f2027 0%, #1a6b3c 100%);
+            border-radius: 24px;
+            padding: 50px;
+            text-align: center;
+            color: #fff;
+        }
+        .cta-speed-box h2 { font-weight: 800; margin-bottom: 12px; }
+        .cta-speed-box p  { opacity: 0.85; margin-bottom: 28px; font-size: 1.05rem; }
+
+        /* info strip */
+        .info-strip {
+            background: #f0fff6;
+            border: 1px solid #c3f0d8;
+            border-radius: 12px;
+            padding: 18px 24px;
+            display: flex; align-items: center; gap: 14px;
+            margin-bottom: 32px;
+        }
+        .info-strip i { color: #27ae60; font-size: 1.3rem; flex-shrink: 0; }
+        .info-strip p { margin: 0; font-size: 0.92rem; color: #555; line-height: 1.7; }
+
+        @media(max-width:768px) { .cwv-grid { grid-template-columns: 1fr; } }
+    </style>
+
+</head>
+<body class="theme-speed">
 
 <div id="header-placeholder"></div>
 
-<!-- HERO -->
-<section class="hero overflow-hidden">
+<!-- SUB-HERO -->
+<section class="sub-hero">
     <div class="container">
 
+        <nav aria-label="breadcrumb" class="page-breadcrumb mb-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">الرئيسية</a></li>
+                <li class="breadcrumb-item active">تسريع OpenCart</li>
+            </ol>
+        </nav>
+
         <div class="row align-items-center">
-
-            <div class="col-lg-6 mb-5 mb-lg-0">
-
-                <span class="badge bg-warning text-dark px-3 py-2 mb-3">
-                    خدمة احترافية لتحسين أداء OpenCart
+            <div class="col-lg-7 mb-4 mb-lg-0">
+                <span class="badge bg-success px-3 py-2 mb-3">
+                    <i class="fas fa-gauge-high me-1"></i> تحسين الأداء والسرعة
                 </span>
-
-                <h1 class="display-4 fw-black mb-4">
+                <h1 class="display-5 fw-black mb-3">
                     تسريع متجر OpenCart وتحسين الأداء بالكامل
                 </h1>
-
-                <p class="lead mb-4 text-light">
-                    هل متجرك بطيء؟ نخدمك في تحسين سرعة OpenCart ورفع نتائج Google PageSpeed وتقليل وقت التحميل وتحسين تجربة المستخدم لتحصل على متجر أسرع ومبيعات أفضل.
+                <p class="lead mb-4 opacity-90">
+                    كل ثانية تأخير تكلّفك عملاء. سواء كنت تريد تفهم المشكلة بنفسك أو تفوّضها لمتخصص، هذه الصفحة دليلك الكامل لمتجر OpenCart أسرع وأداء أعلى.
                 </p>
-
                 <div class="d-flex flex-wrap gap-3">
-
-                    <a href="https://wa.me/966559924572"
-                       class="btn btn-light btn-lg px-4 fw-bold">
-                        اطلب الخدمة الآن
+                    <a href="https://wa.me/966559924572" class="btn btn-light btn-lg px-4 fw-bold">
+                        <i class="fab fa-whatsapp me-2"></i>اطلب التسريع الآن
                     </a>
-
-                    <a href="#features"
-                       class="btn btn-outline-light btn-lg px-4">
-                        استكشف التفاصيل
+                    <a href="#causes" class="btn btn-outline-light btn-lg px-4">
+                        ابدأ بالدليل التعليمي
                     </a>
-
                 </div>
-
             </div>
-
-            <div class="col-lg-6 text-center">
-
-                <i class="fas fa-gauge-high fa-10x opacity-25 text-white animated"></i>
-
+            <div class="col-lg-5 text-center d-none d-lg-block">
+                <i class="fas fa-gauge-high fa-8x opacity-15 text-white animated"></i>
             </div>
-
         </div>
-
     </div>
 </section>
 
-<!-- المشاكل -->
-<section class="py-5 bg-white">
-
+<!-- تنبيه سريع -->
+<section class="py-4">
     <div class="container">
+        <div class="info-strip">
+            <i class="fas fa-lightbulb"></i>
+            <p><strong>متجر يتحمل خلال ثانيتين يحقق تحويلاً أعلى بـ 15% من متجر يحتاج 4 ثوانٍ.</strong> معظم متاجر OpenCart تستطيع الوصول لهذا المستوى بعد تحسينات واضحة ومحددة.</p>
+        </div>
+    </div>
+</section>
 
+<!-- دليل تعليمي: لماذا يبطأ المتجر؟ -->
+<section id="causes" class="py-5 bg-white">
+    <div class="container">
         <div class="text-center mb-5">
-            <h2 class="fw-bold">هل تعاني من بطء متجر OpenCart؟</h2>
-            <p class="text-muted">
-                هذه أكثر المشاكل التي نراها في المتاجر الإلكترونية
-            </p>
+            <span class="section-eyebrow">دليل تعليمي</span>
+            <h2 class="fw-bold">لماذا يبطأ متجر OpenCart؟ — الأسباب الحقيقية</h2>
+            <p class="text-muted mx-auto" style="max-width:640px;">قبل أي تحسين، لازم تفهم المشكلة. هذه أشهر أسباب البطء في متاجر OpenCart وما الذي تستطيع فعله حيال كل منها.</p>
         </div>
 
         <div class="row g-4">
 
-            <div class="col-md-4">
-                <div class="custom-card shadow-sm p-4 h-100 text-center">
-                    <i class="fas fa-hourglass-half fa-3x text-danger mb-3"></i>
-                    <h3 class="h5 fw-bold">بطء تحميل الصفحات</h3>
-                    <p class="text-muted">
-                        تأخر تحميل صفحات المنتجات والتصنيفات يؤثر مباشرة على المبيعات وتجربة العملاء.
-                    </p>
+            <div class="col-md-6 col-lg-4">
+                <div class="cause-card green">
+                    <div class="cause-icon"><i class="fas fa-images"></i></div>
+                    <h4>صور غير مضغوطة وكبيرة الحجم</h4>
+                    <p>رفع صور بدقة 4K لمنتجات بحجم 5MB كل صورة هو القاتل الأول للسرعة. المتصفح يحمّلها كاملة قبل أن يعرض الصفحة.</p>
+                    <div class="tip-box"><i class="fas fa-wrench me-1 text-success"></i> <strong>الحل:</strong> ضغط الصور بـ TinyPNG أو WebP، وتفعيل lazy loading.</div>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="custom-card shadow-sm p-4 h-100 text-center">
-                    <i class="fas fa-mobile-screen-button fa-3x text-primary mb-3"></i>
-                    <h3 class="h5 fw-bold">ضعف الأداء على الجوال</h3>
-                    <p class="text-muted">
-                        أغلب الزيارات تأتي من الهواتف، والبطء يؤدي إلى خسارة العملاء بسرعة.
-                    </p>
+            <div class="col-md-6 col-lg-4">
+                <div class="cause-card blue">
+                    <div class="cause-icon"><i class="fas fa-puzzle-piece"></i></div>
+                    <h4>إضافات زائدة تُثقل الصفحات</h4>
+                    <p>كل إضافة تُضيف CSS وJavaScript إلى كل صفحة، حتى لو لم تُستخدم فيها. 10 إضافات = 10 ملفات إضافية يجب تحميلها.</p>
+                    <div class="tip-box"><i class="fas fa-wrench me-1 text-primary"></i> <strong>الحل:</strong> إلغاء الإضافات غير الضرورية، ودمج ملفات JS/CSS.</div>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="custom-card shadow-sm p-4 h-100 text-center">
-                    <i class="fas fa-chart-line fa-3x text-success mb-3"></i>
-                    <h3 class="h5 fw-bold">نتائج SEO ضعيفة</h3>
-                    <p class="text-muted">
-                        سرعة الموقع عامل مهم في ترتيب نتائج البحث وتحسين معدل التحويل.
-                    </p>
+            <div class="col-md-6 col-lg-4">
+                <div class="cause-card amber">
+                    <div class="cause-icon"><i class="fas fa-database"></i></div>
+                    <h4>قواعد بيانات غير محسّنة</h4>
+                    <p>مع الوقت تتراكم سجلات الـ sessions والـ logs والمنتجات المحذوفة في قاعدة البيانات، مما يُبطئ كل استعلام يُرسله المتجر.</p>
+                    <div class="tip-box"><i class="fas fa-wrench me-1 text-warning"></i> <strong>الحل:</strong> تنظيف قاعدة البيانات دورياً وتفعيل query cache.</div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="cause-card red">
+                    <div class="cause-icon"><i class="fas fa-server"></i></div>
+                    <h4>استضافة مشتركة بموارد محدودة</h4>
+                    <p>الاستضافة الرخيصة المشتركة تعني مشاركة نفس السيرفر مع مئات المواقع. في أوقات الذروة يُخصَّص لك الحد الأدنى من الموارد.</p>
+                    <div class="tip-box"><i class="fas fa-wrench me-1 text-danger"></i> <strong>الحل:</strong> الترقية لاستضافة VPS أو استضافة متخصصة لـ OpenCart.</div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="cause-card purple">
+                    <div class="cause-icon"><i class="fas fa-memory"></i></div>
+                    <h4>الكاش معطل أو مضبوط خطأ</h4>
+                    <p>OpenCart يدعم أنظمة كاش متعددة (File, APC, Memcached, Redis). تركه على الإعدادات الافتراضية أو تعطيله يعني إعادة حساب كل شيء من الصفر مع كل زيارة.</p>
+                    <div class="tip-box"><i class="fas fa-wrench me-1 text-purple"></i> <strong>الحل:</strong> تفعيل الكاش المناسب لبيئة استضافتك.</div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="cause-card teal">
+                    <div class="cause-icon"><i class="fas fa-code"></i></div>
+                    <h4>قوالب بكود ثقيل وغير محسّن</h4>
+                    <p>بعض القوالب التجارية تأتي محشوّة بمكتبات JavaScript ضخمة مثل jQuery plugins وأنيميشن وsliders لا تحتاجها، وتُحمَّل في كل صفحة.</p>
+                    <div class="tip-box"><i class="fas fa-wrench me-1 text-teal"></i> <strong>الحل:</strong> تحليل القالب وحذف المكتبات غير المستخدمة أو استبداله.</div>
                 </div>
             </div>
 
         </div>
-
     </div>
-
 </section>
 
-<!-- ماذا تشمل الخدمة -->
-<section id="features" class="py-5">
-
+<!-- Core Web Vitals شرح تعليمي -->
+<section class="py-5">
     <div class="container">
+        <div class="row align-items-start g-5">
 
-        <div class="text-center mb-5">
-            <h2 class="fw-bold">ماذا تشمل خدمة تسريع OpenCart؟</h2>
-        </div>
-
-        <div class="row g-4">
-
-            <div class="col-lg-6">
-
-                <div class="details-card h-100">
-
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>تحسين سرعة تحميل الصفحات الرئيسية والمنتجات</span>
-                    </div>
-
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>تقليل حجم ملفات CSS و JavaScript</span>
-                    </div>
-
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>تفعيل أنظمة الكاش وتحسين الأداء</span>
-                    </div>
-
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>تحسين الصور وضغط الملفات</span>
-                    </div>
-
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>تحسين قاعدة البيانات وإزالة البيانات غير الضرورية</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="col-lg-6">
-
-                <div class="details-card h-100">
-
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>تحسين نتائج Google PageSpeed Insights</span>
-                    </div>
-
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>تحسين Core Web Vitals</span>
-                    </div>
-
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>تقليل استهلاك موارد الاستضافة</span>
-                    </div>
-
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>تحسين الأداء على الجوال وسطح المكتب</span>
-                    </div>
-
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>تقرير واضح قبل وبعد التحسين</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- النتائج -->
-<section class="py-5 bg-white">
-
-    <div class="container">
-
-        <div class="row align-items-center">
-
-            <div class="col-lg-6 mb-4">
-
-                <h2 class="fw-bold mb-4">
-                    لماذا تعتبر سرعة المتجر مهمة؟
-                </h2>
-
+            <div class="col-lg-5">
+                <span class="section-eyebrow">مقاييس Google</span>
+                <h2 class="fw-bold mb-3">ما هي Core Web Vitals ولماذا تهمك؟</h2>
                 <p class="text-muted mb-4">
-                    كل ثانية تأخير قد تؤدي لخسارة جزء من العملاء والمبيعات، خصوصًا في المتاجر الإلكترونية.
-                    تحسين سرعة OpenCart يساعد على:
+                    Google تستخدم 3 مقاييس أساسية لتقييم تجربة المستخدم في موقعك، وتدخلها كعامل في ترتيب نتائج البحث. تحسينها = ترتيب أعلى + تجربة أفضل.
                 </p>
+
+                <div class="cwv-grid mb-4">
+                    <div class="cwv-card good">
+                        <div class="cwv-icon"><i class="fas fa-eye"></i></div>
+                        <div class="cwv-label">المقياس الأول</div>
+                        <div class="cwv-metric">LCP</div>
+                        <div class="cwv-name">أكبر عنصر مرئي</div>
+                    </div>
+                    <div class="cwv-card needs">
+                        <div class="cwv-icon"><i class="fas fa-hand-pointer"></i></div>
+                        <div class="cwv-label">المقياس الثاني</div>
+                        <div class="cwv-metric">INP</div>
+                        <div class="cwv-name">وقت الاستجابة</div>
+                    </div>
+                    <div class="cwv-card good">
+                        <div class="cwv-icon"><i class="fas fa-arrows-up-down-left-right"></i></div>
+                        <div class="cwv-label">المقياس الثالث</div>
+                        <div class="cwv-metric">CLS</div>
+                        <div class="cwv-name">ثبات التخطيط</div>
+                    </div>
+                </div>
 
                 <ul class="list-unstyled">
-
-                    <li class="mb-3">
-                        <i class="fas fa-check text-success me-2"></i>
-                        تحسين تجربة المستخدم
+                    <li class="mb-2 d-flex gap-2 align-items-start">
+                        <i class="fas fa-circle-check text-success mt-1"></i>
+                        <span><strong>LCP</strong> — يقيس متى تظهر أكبر صورة أو نص في الصفحة. الهدف: أقل من 2.5 ثانية.</span>
                     </li>
-
-                    <li class="mb-3">
-                        <i class="fas fa-check text-success me-2"></i>
-                        رفع معدل التحويل والمبيعات
+                    <li class="mb-2 d-flex gap-2 align-items-start">
+                        <i class="fas fa-circle-check text-success mt-1"></i>
+                        <span><strong>INP</strong> — يقيس سرعة الصفحة في الاستجابة للنقرات. الهدف: أقل من 200ms.</span>
                     </li>
-
-                    <li class="mb-3">
-                        <i class="fas fa-check text-success me-2"></i>
-                        تحسين نتائج محركات البحث
+                    <li class="d-flex gap-2 align-items-start">
+                        <i class="fas fa-circle-check text-success mt-1"></i>
+                        <span><strong>CLS</strong> — يقيس مدى تحرك العناصر أثناء التحميل (الـ jump). الهدف: أقل من 0.1.</span>
                     </li>
-
-                    <li class="mb-3">
-                        <i class="fas fa-check text-success me-2"></i>
-                        تقليل معدل خروج الزوار
-                    </li>
-
                 </ul>
-
             </div>
 
-            <div class="col-lg-6">
+            <div class="col-lg-7">
+                <div class="speed-meter">
+                    <h4 class="fw-bold mb-4 text-center">كيف تقرأ نتيجة Google PageSpeed؟</h4>
 
-                <div class="custom-card p-5 shadow-sm text-center">
+                    <div class="speed-bar-wrap">
+                        <div class="speed-bar-label">
+                            <span class="text-danger"><i class="fas fa-circle me-1"></i>نتيجة ضعيفة</span>
+                            <span class="text-muted fw-normal">0 – 49</span>
+                        </div>
+                        <div class="speed-bar"><div class="speed-bar-fill fill-red"></div></div>
+                        <small class="text-muted">المتجر بطيء جداً — يحتاج تحسينات عاجلة. يفقد زوار قبل أن يشاهدوا أي منتج.</small>
+                    </div>
 
-                    <i class="fas fa-rocket fa-4x text-primary mb-4"></i>
+                    <div class="speed-bar-wrap">
+                        <div class="speed-bar-label">
+                            <span class="text-warning"><i class="fas fa-circle me-1"></i>نتيجة متوسطة</span>
+                            <span class="text-muted fw-normal">50 – 89</span>
+                        </div>
+                        <div class="speed-bar"><div class="speed-bar-fill fill-amber"></div></div>
+                        <small class="text-muted">يوجد مجال كبير للتحسين. مقبول مؤقتاً، لكن المنافسون الأسرع يكسبون زوارك.</small>
+                    </div>
 
-                    <h3 class="fw-bold">
-                        متجر أسرع = تجربة أفضل = مبيعات أعلى
-                    </h3>
+                    <div class="speed-bar-wrap">
+                        <div class="speed-bar-label">
+                            <span class="text-success"><i class="fas fa-circle me-1"></i>نتيجة جيدة</span>
+                            <span class="text-muted fw-normal">90 – 100</span>
+                        </div>
+                        <div class="speed-bar"><div class="speed-bar-fill fill-green"></div></div>
+                        <small class="text-muted">ممتاز — متجرك سريع وتجربة المستخدم مثالية. هذا هو الهدف.</small>
+                    </div>
 
+                    <div class="mt-4 p-3 bg-light rounded-3">
+                        <p class="mb-1 fw-bold small"><i class="fas fa-info-circle text-primary me-1"></i>كيف تقيس متجرك الآن؟</p>
+                        <p class="mb-0 small text-muted">افتح <a href="https://pagespeed.web.dev" target="_blank" rel="noopener noreferrer" class="text-success fw-bold">pagespeed.web.dev</a>، أدخل رابط متجرك، وانظر نتيجتك مجاناً.</p>
+                    </div>
                 </div>
-
             </div>
 
         </div>
-
     </div>
+</section>
 
+<!-- خطوات تحسين السرعة بنفسك -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row align-items-start g-5">
+
+            <div class="col-lg-5">
+                <span class="section-eyebrow">افعلها بنفسك</span>
+                <h2 class="fw-bold mb-3">خطوات يمكنك تطبيقها الآن</h2>
+                <p class="text-muted">هذه التحسينات لا تحتاج خبرة برمجية عميقة، وتحدث فرقاً واضحاً في النتيجة.</p>
+                <div class="mt-4 p-4 rounded-3" style="background:#eafaf1; border-right:4px solid #27ae60;">
+                    <p class="mb-0 small"><i class="fas fa-info-circle text-success me-1"></i> إذا جربت هذه الخطوات ولم تر تحسناً كافياً — تواصل معنا، المشكلة على الأرجح أعمق وتحتاج تشخيصاً متخصصاً.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="opt-step">
+                    <div class="step-num">1</div>
+                    <div>
+                        <h4>فعّل الكاش في إعدادات OpenCart</h4>
+                        <p>من System → Settings → Server، فعّل خيارات الكاش المتاحة. هذه الخطوة وحدها تُحسّن الأداء بشكل ملحوظ في أغلب المتاجر.</p>
+                    </div>
+                </div>
+                <div class="opt-step">
+                    <div class="step-num">2</div>
+                    <div>
+                        <h4>اضغط جميع صور المنتجات</h4>
+                        <p>استخدم TinyPNG أو Squoosh قبل رفع أي صورة. الهدف أن تكون كل صورة أقل من 200KB. أو فعّل WebP إذا كانت استضافتك تدعمه.</p>
+                    </div>
+                </div>
+                <div class="opt-step">
+                    <div class="step-num">3</div>
+                    <div>
+                        <h4>ألغِ الإضافات التي لا تستخدمها</h4>
+                        <p>ادخل Extensions وراجع كل إضافة مفعّلة. كل إضافة معطّلة = ملفات JS/CSS أقل تُحمَّل في كل صفحة.</p>
+                    </div>
+                </div>
+                <div class="opt-step">
+                    <div class="step-num">4</div>
+                    <div>
+                        <h4>نظّف قاعدة البيانات</h4>
+                        <p>من لوحة cPanel افتح phpMyAdmin وشغّل OPTIMIZE TABLE على الجداول الكبيرة. أو استخدم إضافة OpenCart متخصصة لتنظيف بيانات الـ sessions القديمة.</p>
+                    </div>
+                </div>
+                <div class="opt-step">
+                    <div class="step-num">5</div>
+                    <div>
+                        <h4>فعّل GZIP Compression</h4>
+                        <p>في ملف .htaccess أضف سطر تفعيل GZIP. يضغط الملفات قبل إرسالها للمتصفح ويُقلل حجمها بنسبة 60-80%.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- الخدمة الاحترافية -->
+<section id="service" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="section-eyebrow">الخدمة الاحترافية</span>
+            <h2 class="fw-bold">ماذا نفعل نحن؟ — تحسين شامل من الجذر</h2>
+            <p class="text-muted mx-auto" style="max-width:600px;">إذا كنت لا تريد الخوض في هذه التفاصيل، نتكفل بكل شيء بتقرير واضح قبل وبعد.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="details-card h-100">
+                    <div class="feature-item"><i class="fas fa-check-circle"></i><span>تحليل كامل لنتائج PageSpeed وCore Web Vitals</span></div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i><span>ضغط وتحسين جميع الصور وتفعيل WebP</span></div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i><span>تصغير ودمج ملفات CSS وJavaScript</span></div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i><span>ضبط وتفعيل نظام الكاش المناسب</span></div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i><span>تفعيل GZIP وBrowser Caching</span></div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="details-card h-100">
+                    <div class="feature-item"><i class="fas fa-check-circle"></i><span>تحسين وتنظيف قاعدة البيانات</span></div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i><span>تحسين الأداء على الجوال تحديداً</span></div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i><span>تقليل استهلاك موارد السيرفر</span></div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i><span>إزالة الإضافات الثقيلة غير الضرورية</span></div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i><span>تقرير مقارنة قبل/بعد بالأرقام</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- إحصائيات -->
+        <div class="row g-4 mt-4 text-center">
+            <div class="col-6 col-lg-3">
+                <div class="custom-card p-4 shadow-sm">
+                    <div class="fw-bold fs-2 text-success">+300</div>
+                    <div class="text-muted small">متجر تم تسريعه</div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="custom-card p-4 shadow-sm">
+                    <div class="fw-bold fs-2 text-success">2x</div>
+                    <div class="text-muted small">متوسط تحسن السرعة</div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="custom-card p-4 shadow-sm">
+                    <div class="fw-bold fs-2 text-success">48h</div>
+                    <div class="text-muted small">مدة التنفيذ الأقصى</div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="custom-card p-4 shadow-sm">
+                    <div class="fw-bold fs-2 text-success">100%</div>
+                    <div class="text-muted small">تقرير شفاف بالأرقام</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- CTA -->
 <section class="py-5">
-
     <div class="container">
-
-        <div class="details-card text-center">
-
-            <span class="badge bg-success px-3 py-2 mb-3">
-                دعم فني متخصص في OpenCart
-            </span>
-
-            <h2 class="fw-bold mb-4">
-                جاهز لتسريع متجرك؟
-            </h2>
-
-            <p class="text-muted mb-4">
-                تواصل معنا الآن لفحص أداء متجرك وتحديد أفضل خطوات التحسين المناسبة.
-            </p>
-
-            <a href="https://wa.me/966559924572"
-               class="btn btn-success btn-lg px-5">
-                تواصل عبر واتساب
+        <div class="cta-speed-box">
+            <span class="badge bg-success mb-3 px-3 py-2">تحليل مجاني لأداء متجرك</span>
+            <h2>كم نتيجتك في PageSpeed الآن؟</h2>
+            <p>أرسل لنا رابط متجرك وسنشوف نتيجتك ونخبرك بالتحسينات الممكنة — مجاناً وبدون التزام</p>
+            <a href="https://wa.me/966559924572" class="btn btn-light btn-lg px-5 fw-bold">
+                <i class="fab fa-whatsapp me-2 text-success"></i>تواصل عبر واتساب
             </a>
-
         </div>
-
     </div>
-
 </section>
 
-<!-- FAQ -->
+<!-- الأسئلة الشائعة -->
 <section class="py-5 bg-white">
-
-    <div class="container">
-
+    <div class="container" style="max-width:760px;">
         <div class="text-center mb-5">
-            <h2 class="fw-bold">الأسئلة الشائعة</h2>
+            <span class="section-eyebrow">أسئلة شائعة</span>
+            <h2 class="fw-bold">أسئلة يسألها أصحاب المتاجر</h2>
         </div>
-
         <div class="accordion" id="faqAccordion">
 
             <div class="accordion-item">
                 <h2 class="accordion-header">
-                    <button class="accordion-button"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#faq1">
-
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
                         كم يستغرق تحسين سرعة OpenCart؟
-
                     </button>
                 </h2>
-
-                <div id="faq1"
-                     class="accordion-collapse collapse show"
-                     data-bs-parent="#faqAccordion">
-
+                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
                     <div class="accordion-body">
-                        غالبًا من يوم إلى 3 أيام حسب حجم المتجر والمشاكل الموجودة.
+                        التحسينات الأساسية (كاش، صور، CSS/JS) تأخذ من يوم إلى يومين. التحسينات المتقدمة التي تشمل إعادة هيكلة قاعدة البيانات أو تعديل الكود قد تمتد لـ 3-5 أيام حسب حجم المتجر.
                     </div>
-
                 </div>
             </div>
 
             <div class="accordion-item mt-3">
-
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#faq2">
-
-                        هل التحسين يشمل الجوال؟
-
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                        هل ضمان وصول نتيجة معينة في PageSpeed؟
                     </button>
                 </h2>
-
-                <div id="faq2"
-                     class="accordion-collapse collapse"
-                     data-bs-parent="#faqAccordion">
-
+                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                     <div class="accordion-body">
-                        نعم، يتم التركيز على تحسين الأداء على الجوال وسطح المكتب.
+                        لا يمكن ضمان رقم محدد لأن النتيجة النهائية تعتمد على جودة الاستضافة وتعقيد القالب وعدد الإضافات. لكن نلتزم بتحسين واضح وقابل للقياس، وتقديم تقرير مقارنة قبل/بعد بالأرقام الفعلية.
                     </div>
-
                 </div>
-
             </div>
 
             <div class="accordion-item mt-3">
-
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#faq3">
-
-                        هل يمكن تحسين نتائج PageSpeed؟
-
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                        هل التحسين يؤثر على مظهر المتجر أو وظائفه؟
                     </button>
                 </h2>
-
-                <div id="faq3"
-                     class="accordion-collapse collapse"
-                     data-bs-parent="#faqAccordion">
-
+                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                     <div class="accordion-body">
-                        نعم، نعمل على تحسين النتائج قدر الإمكان حسب القالب والاستضافة والإضافات المستخدمة.
+                        لا. نأخذ نسخة احتياطية كاملة قبل أي تعديل، ونختبر كل التغييرات قبل تطبيقها. مظهر المتجر ووظائفه تبقى كما هي — السرعة فقط هي ما يتحسن.
                     </div>
-
                 </div>
+            </div>
 
+            <div class="accordion-item mt-3">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                        هل التحسين يشمل أداء الجوال؟
+                    </button>
+                </h2>
+                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        نعم، ونُعطيه أولوية لأن أغلب زيارات المتاجر العربية تأتي من الجوال. نقيس الأداء على الجوال بشكل منفصل ونحسّن Core Web Vitals لكلا الجهازين.
+                    </div>
+                </div>
             </div>
 
         </div>
-
     </div>
-
 </section>
 
 <div id="footer-placeholder"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 <script src="main.js"></script>
 
 </body>
