@@ -4,7 +4,7 @@
   <!-- الصفحة الرئيسية -->
   <url>
     <loc>https://opencartarab.com/</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-08-26</lastmod>
     <priority>1.00</priority>
   </url>
 
@@ -49,14 +49,14 @@
   <!-- صفحة الإصدارات -->
   <url>
     <loc>https://opencartarab.com/releases.html</loc>
-    <lastmod>2026-05-01</lastmod>
+    <lastmod>2026-08-26</lastmod>
     <priority>0.85</priority>
   </url>
 
   <!-- أرشيف الإصدارات -->
   <url>
     <loc>https://opencartarab.com/archive.html</loc>
-    <lastmod>2026-05-01</lastmod>
+    <lastmod>2026-08-26</lastmod>
     <priority>0.70</priority>
   </url>
 
