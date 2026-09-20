@@ -1,0 +1,354 @@
+/* ==========================================================================
+   اليوم الوطني السعودي 96 — عزّنا بطبعنا
+   ملف مستقل يعمل كطبقة فوق style.css.
+
+   • كل القواعد مقيّدة بالصنف  html.nd96  الذي يضيفه national-day-96.js
+     فقط خلال فترة الحملة، وبعدها يعود الموقع لشكله الأصلي تلقائيًا.
+   • لإزالة الحملة نهائيًا: احذف سطري الربط (css + js) من الصفحات.
+   ========================================================================== */
+
+/* ---------- 0. مفاتيح الإظهار والإخفاء ---------- */
+.nd96-only,
+.nd96-footer-greeting { display: none; }
+
+html.nd96 .nd96-only { display: block; }
+html.nd96 .nd96-footer-greeting { display: block; }
+html.nd96 .nd96-hide { display: none !important; }
+
+/* ---------- 1. الألوان والرموز ---------- */
+html.nd96 {
+    --nd-green-900: #04291b;
+    --nd-green-800: #063d28;
+    --nd-green-700: #04502f;
+    --nd-green:     #006c35;
+    --nd-gold:      #c8a55a;
+    --nd-gold-light:#e2c983;
+
+    /* مثلثات نجدية بفتحة (تُستخدم كشريط حدّي) */
+    --nd-band: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8' viewBox='0 0 10 8'%3E%3Cpath fill='%23c8a55a' fill-rule='evenodd' d='M0 8L5 0l5 8zM3.2 8L5 4l1.8 4z'/%3E%3C/svg%3E");
+    /* شبكة معينات هندسية خفيفة لخلفية الهيرو */
+    --nd-lattice: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M20 1L39 20 20 39 1 20z' fill='none' stroke='%23c8a55a' stroke-opacity='.14'/%3E%3C/svg%3E");
+
+    /* إعادة تعريف متغيرات الموقع الحالية */
+    --main-blue: #063d28;
+    --oc-blue:   #006c35;
+    --oc-green:  #006c35;
+    --gold:      #c8a55a;
+    --light-bg:  #f3f7f4;
+
+    /* إعادة تعريف ألوان Bootstrap الأساسية إلى الأخضر */
+    --bs-primary: #006c35;
+    --bs-primary-rgb: 0, 108, 53;
+    --bs-link-color: #006c35;
+    --bs-link-color-rgb: 0, 108, 53;
+    --bs-link-hover-color: #04502f;
+    --bs-link-hover-color-rgb: 4, 80, 47;
+}
+
+html.nd96 .btn-primary {
+    --bs-btn-bg: #006c35;
+    --bs-btn-border-color: #006c35;
+    --bs-btn-hover-bg: #04502f;
+    --bs-btn-hover-border-color: #04502f;
+    --bs-btn-active-bg: #063d28;
+    --bs-btn-active-border-color: #063d28;
+    --bs-btn-disabled-bg: #006c35;
+    --bs-btn-disabled-border-color: #006c35;
+    --bs-btn-focus-shadow-rgb: 0, 108, 53;
+}
+html.nd96 .btn-outline-primary {
+    --bs-btn-color: #006c35;
+    --bs-btn-border-color: #006c35;
+    --bs-btn-hover-bg: #006c35;
+    --bs-btn-hover-border-color: #006c35;
+    --bs-btn-active-bg: #04502f;
+    --bs-btn-active-border-color: #04502f;
+    --bs-btn-focus-shadow-rgb: 0, 108, 53;
+}
+
+/* ---------- 2. الشريط العلوي ---------- */
+.nd96-bar {
+    position: relative;
+    background: var(--nd-green-900);
+    color: #fff;
+    font-size: .95rem;
+    line-height: 1.5;
+}
+.nd96-bar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: .25rem 1rem;
+    padding: 8px 48px;
+    text-align: center;
+}
+.nd96-bar__num {
+    font-family: 'Reem Kufi', 'Cairo', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: var(--nd-gold-light);
+}
+.nd96-bar__title { font-weight: 700; }
+.nd96-bar__slogan {
+    font-family: 'Aref Ruqaa', 'Cairo', serif;
+    font-size: 1.2rem;
+    color: var(--nd-gold-light);
+}
+.nd96-bar__count {
+    font-variant-numeric: tabular-nums;
+    padding: 0 12px;
+    border: 1px solid rgba(226, 201, 131, .5);
+    border-radius: 999px;
+    white-space: nowrap;
+}
+.nd96-bar__count:empty { display: none; }
+.nd96-bar__close {
+    position: absolute;
+    inset-inline-end: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    opacity: .7;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+}
+.nd96-bar__close:hover { opacity: 1; }
+.nd96-bar__close:focus-visible,
+.nd96-bar a:focus-visible {
+    outline: 2px solid var(--nd-gold-light);
+    outline-offset: 2px;
+}
+
+/* ---------- 3. شريط التنقل ---------- */
+html.nd96 .navbar { border-bottom: 3px solid var(--nd-green); }
+
+/* ---------- 4. الهيرو والهيرو الفرعي ---------- */
+html.nd96 .hero,
+html.nd96 .sub-hero,
+html.nd96 .theme-advanced .sub-hero,
+html.nd96 .theme-transfer .sub-hero,
+html.nd96 .theme-fix-errors .sub-hero,
+html.nd96 .theme-speed .sub-hero {
+    position: relative;
+    background: var(--nd-lattice) 0 0 / 40px 40px repeat, var(--nd-green-800);
+    border-bottom: 0;
+}
+html.nd96 .hero { border-radius: 0; }
+
+/* شريط المثلثات أسفل الهيرو */
+html.nd96 .hero::after,
+html.nd96 .sub-hero::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: 8px;
+    background: var(--nd-band) repeat-x center bottom / 10px 8px;
+    pointer-events: none;
+}
+
+/* رقم 96 مفرّغ كعلامة مائية في الصفحات الداخلية */
+html.nd96 .sub-hero { overflow: hidden; }
+html.nd96 .sub-hero::before {
+    content: "96";
+    position: absolute;
+    left: 4%;
+    top: 50%;
+    transform: translateY(-50%);
+    direction: ltr;
+    font-family: 'Reem Kufi', 'Cairo', sans-serif;
+    font-weight: 700;
+    font-size: clamp(7rem, 17vw, 13rem);
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(200, 165, 90, .3);
+    pointer-events: none;
+}
+html.nd96 .sub-hero > .container { position: relative; z-index: 1; }
+html.nd96 .hero > .container { position: relative; z-index: 1; }
+
+/* ---------- 5. شعار المناسبة في الصفحة الرئيسية ---------- */
+.nd96-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.nd96-emblem {
+    position: relative;
+    width: min(320px, 78vw);
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+}
+.nd96-emblem__ring {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+.nd96-emblem__ring .fill  { fill: rgba(4, 41, 27, .6); }
+.nd96-emblem__ring .dots  {
+    fill: none;
+    stroke: var(--nd-gold);
+    stroke-opacity: .55;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: .1 9;
+}
+.nd96-emblem__ring .outer {
+    fill: none;
+    stroke: var(--nd-gold);
+    stroke-width: 3;
+    stroke-dasharray: 981;
+    stroke-dashoffset: 981;
+    transform: rotate(-90deg);
+    transform-origin: 160px 160px;
+    animation: nd96-draw 1.8s cubic-bezier(.4, 0, .2, 1) .25s forwards;
+}
+@keyframes nd96-draw { to { stroke-dashoffset: 0; } }
+
+.nd96-emblem__body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+.nd96-emblem__label {
+    font-family: 'Aref Ruqaa', 'Cairo', serif;
+    font-size: 1.5rem;
+    line-height: 1.3;
+}
+.nd96-emblem__num {
+    font-family: 'Reem Kufi', 'Cairo', sans-serif;
+    font-weight: 700;
+    font-size: clamp(6rem, 9vw, 8rem);
+    line-height: .95;
+    letter-spacing: -.02em;
+    color: var(--nd-gold-light);
+    direction: ltr;
+}
+.nd96-emblem__slogan {
+    font-family: 'Aref Ruqaa', 'Cairo', serif;
+    font-size: 1.7rem;
+    line-height: 1.3;
+    color: var(--nd-gold-light);
+}
+
+.nd96-date { margin: 0; color: rgba(255, 255, 255, .8); font-size: .95rem; }
+
+/* العدّاد التنازلي */
+.nd96-countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .6rem;
+    width: min(360px, 100%);
+}
+.nd96-countdown[hidden] { display: none; }
+.nd96-cd__cell {
+    padding: .55rem .2rem;
+    border: 1px solid rgba(226, 201, 131, .45);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .04);
+    text-align: center;
+}
+.nd96-cd__val {
+    display: block;
+    font-family: 'Reem Kufi', 'Cairo', sans-serif;
+    font-weight: 700;
+    font-size: 1.7rem;
+    line-height: 1.15;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+}
+.nd96-cd__lbl { font-size: .78rem; color: rgba(255, 255, 255, .72); }
+
+.nd96-msg {
+    margin: 0;
+    font-family: 'Aref Ruqaa', 'Cairo', serif;
+    font-size: 1.9rem;
+    line-height: 1.5;
+    color: var(--nd-gold-light);
+}
+.nd96-msg[hidden] { display: none; }
+
+/* ---------- 6. إعادة تلوين عناصر الموقع ---------- */
+html.nd96 .featured-release {
+    background: linear-gradient(135deg, var(--nd-green-800), var(--nd-green));
+}
+html.nd96 .btn-download-main { color: var(--nd-green-800) !important; }
+html.nd96 .release-card:hover { border-color: var(--nd-green); }
+
+html.nd96 .comparison-table thead,
+html.nd96 .data-table th {
+    background: var(--nd-green-800);
+}
+
+html.nd96 #v-pills-tab .nav-link.active {
+    background-color: rgba(0, 108, 53, .08) !important;
+    border-color: rgba(0, 108, 53, .3);
+}
+
+/* ---------- 7. الفوتر ---------- */
+html.nd96 footer.bg-dark {
+    position: relative;
+    background: var(--nd-green-900) !important;
+    padding-top: 3.5rem !important;
+}
+html.nd96 footer.bg-dark::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 8px;
+    background: var(--nd-band) repeat-x center bottom / 10px 8px;
+    transform: scaleY(-1);
+    pointer-events: none;
+}
+
+.nd96-footer-greeting {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(226, 201, 131, .25);
+    text-align: center;
+}
+.nd96-footer-greeting__slogan {
+    display: block;
+    font-family: 'Aref Ruqaa', 'Cairo', serif;
+    font-size: 2rem;
+    line-height: 1.4;
+    color: var(--nd-gold-light);
+}
+.nd96-footer-greeting p {
+    max-width: 44rem;
+    margin: .4rem auto 0;
+    color: rgba(255, 255, 255, .78);
+}
+
+/* ---------- 8. الجوال وتفضيلات المستخدم ---------- */
+@media (max-width: 575.98px) {
+    .nd96-bar__inner { padding-inline: 40px; font-size: .88rem; }
+    .nd96-bar__slogan { display: none; }
+    .nd96-cd__val { font-size: 1.4rem; }
+    .nd96-emblem__label { font-size: 1.3rem; }
+    .nd96-emblem__slogan { font-size: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nd96-emblem__ring .outer { animation: none; stroke-dashoffset: 0; }
+}
+
+@media print {
+    .nd96-bar { display: none; }
+}
