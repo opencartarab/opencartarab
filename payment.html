@@ -165,6 +165,18 @@
 <script src="https://www.paypal.com/sdk/js?client-id=AcXcYNZouJl4wuFKGHeUJvFnlX-HpD4JJYMQTmZ60Uu2E2NUTZ5L2zq0wCIxu2_TYS8QGpdOa2nAIBMW&currency=USD&locale=ar_SA" data-sdk-integration-source="button-factory"></script>
 
 <script>
+    // تعبئة مسبقة من روابط العروض: payment.html?amount=80&note=...
+    (function () {
+        var q = new URLSearchParams(window.location.search);
+        var a = parseFloat(q.get("amount")), n = (q.get("note") || "").slice(0, 80);
+        if (a > 0 && a <= 5000) { document.querySelector("#amount").value = a; }
+        if (n) {
+            var d = document.querySelector("#description");
+            d.value = n + " - ";
+            d.focus(); d.setSelectionRange(d.value.length, d.value.length);
+        }
+    })();
+
     function initPayPalButton() {
         var description = document.querySelector('#description');
         var amount = document.querySelector('#amount');

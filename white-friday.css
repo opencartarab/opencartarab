@@ -1,0 +1,48 @@
+/* الجمعة البيضاء — كل القواعد مقيّدة بـ html.wf الذي يضيفه white-friday.js فقط خلال فترة العرض */
+html.wf {
+    --wf-black: #0d0d0f;
+    --wf-ink: #17171a;
+    --wf-amber: #ffb400;
+    --wf-red: #e5322d;
+    --main-blue: #17171a;
+    --gold: #ffb400;
+}
+
+/* الشريط العلوي */
+.wf-bar { background: var(--wf-black, #0d0d0f); color: #fff; font-size: .95rem; line-height: 1.5; position: relative; }
+.wf-bar__inner { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: .25rem 1rem; padding: 8px 44px; text-align: center; }
+.wf-bar__tag { background: #ffb400; color: #0d0d0f; font-weight: 800; padding: 1px 10px; border-radius: 4px; }
+.wf-bar__count { font-variant-numeric: tabular-nums; padding: 0 12px; border: 1px solid rgba(255, 180, 0, .6); border-radius: 999px; color: #ffb400; white-space: nowrap; }
+.wf-bar a { color: #ffb400; font-weight: 700; text-decoration: none; }
+.wf-bar a:hover { text-decoration: underline; }
+.wf-bar__close { position: absolute; inset-inline-end: 6px; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border: 0; background: none; color: #fff; opacity: .7; font-size: 1.4rem; cursor: pointer; }
+.wf-bar__close:hover { opacity: 1; }
+
+/* الهيرو */
+html.wf .hero,
+html.wf .sub-hero,
+html.wf .theme-advanced .sub-hero,
+html.wf .theme-transfer .sub-hero,
+html.wf .theme-fix-errors .sub-hero,
+html.wf .theme-speed .sub-hero {
+    background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .035) 0 2px, transparent 2px 22px), var(--wf-ink);
+    border-bottom: 4px solid var(--wf-amber);
+}
+html.wf .hero .fa-shopping-cart { display: none; }
+html.wf .navbar { border-bottom: 3px solid var(--wf-amber); }
+
+/* شارة الخصم في الهيرو */
+.wf-badge { text-decoration: none;  display: inline-flex; flex-direction: column; align-items: center; justify-content: center; width: min(280px, 70vw); aspect-ratio: 1; border-radius: 50%; border: 4px solid #ffb400; background: #0d0d0f; color: #fff; transform: rotate(-6deg); box-shadow: 0 0 0 10px rgba(255, 180, 0, .15); }
+.wf-badge__top { font-size: 1.5rem; font-weight: 800; letter-spacing: .02em; }
+.wf-badge__big { font-size: 2.4rem; font-weight: 900; line-height: 1.2; color: #ffb400; }
+.wf-badge__sub { font-size: 1.05rem; opacity: .85; }
+.wf-badge__ends { margin-top: .4rem; font-size: .8rem; opacity: .7; }
+
+/* الفوتر */
+html.wf footer.bg-dark { background: var(--wf-black) !important; border-top: 4px solid var(--wf-amber); }
+
+@media (max-width: 575.98px) {
+    .wf-bar__inner { padding-inline: 38px; font-size: .88rem; }
+    .wf-badge__big { font-size: 2rem; }
+}
+@media print { .wf-bar { display: none; } }
